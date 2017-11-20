@@ -1,0 +1,41 @@
+﻿<div id="person-search-container" class="ui fluid">
+
+    <div class="ui header" id="search-result-header">
+        <span class="column" style="font-size: 1.4em"><i class="search icon" style="font-size: 1.4em"></i></span>
+        <span class="column" style="font-size: 1.714rem">Søkeresultater</span>
+        <span class="column" style="float: right; font-size: 20px" *ngIf="!isEmpty">{{searchParameters?.totalCount.toLocaleString('ru-Ru')}} treff </span>
+
+    </div>
+
+    <div class="ui divider" id="ui_divider"></div>
+    <active-filters></active-filters>
+
+
+    <div *ngIf="currentIndex == Indexes.Person">
+        <person-search-list [persons]="items"></person-search-list>
+    </div>
+    
+    <div *ngIf="currentIndex == Indexes.Business">
+        <business-search-list [businesses]="items"></business-search-list>
+    </div>
+        
+        
+    <div *ngIf="!isEmpty && totalPages > 0" id="pageContainer">
+        <div class="ui pagination menu centerdiv">
+            <a *ngIf="searchParameters?.page > 0" class="item" (click)="changePage(searchParameters?.page - 1)">
+                <i class="left chevron icon"></i>
+            </a>
+            <a *ngFor="let n of getPageArray()" (click)="changePage(n)" class="item" [class.active]="searchParameters?.page === n">
+                {{n+1}}
+            </a>
+            <a *ngIf="searchParameters?.page < totalPages"class="item" (click)="changePage(searchParameters?.page + 1)">
+                <i class="right chevron icon"></i>
+            </a>
+        </div>
+    </div>
+
+    <div *ngIf="isEmpty">
+        <div class="ui info message">Ingen treff på ditt søk. Har du husket å nullstille filterne du ikke trenger?</div>
+    </div>
+</div>
+

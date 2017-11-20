@@ -1,0 +1,76 @@
+﻿#maingrid{
+    margin-left: 0;
+    margin-right: 0;
+}
+
+#save_or_reset{
+    padding-right: 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#save_or_reset_inner{
+    margin-right: 0;
+}
+
+
+#labels{
+    flex: 1;
+}
+
+#outer_reset-container{
+
+    padding-right: 0;
+    width: auto;
+
+}
+
+#reset-container{
+    display: flex;
+    align-content: center;
+    justify-content: flex-end;
+}
+
+#resetimg{
+    cursor: pointer;
+}
+
+#resetFilter{
+    color: #595959;
+    font-style: normal;
+    padding-left: 6px;
+    padding-top: 10px;
+    cursor: pointer;
+}
+
+#outer_saveSearch{
+    padding-right: 0;
+    width: auto;
+}
+
+
+#saveSearch{
+    display: flex;
+    align-content: center;
+    justify-content: flex-end;
+
+}
+
+#saveimg{
+    cursor: pointer;
+}
+
+#saveText{
+    color: #595959;
+    font-style: normal;
+    padding-left: 6px;
+    padding-top: 10px;
+    cursor: pointer;
+}
+
+#deleteSearch{
+    display: flex;
+    align-content: center;
+    justify-content: flex-end;
+
+}

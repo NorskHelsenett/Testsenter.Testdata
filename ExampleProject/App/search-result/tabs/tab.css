@@ -1,0 +1,7 @@
+﻿.indent {
+    margin-left: 20px;
+}
+
+p:last-child {
+    margin-bottom: 2em;   
+}

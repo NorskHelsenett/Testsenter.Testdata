@@ -1,0 +1,93 @@
+<div id="staticDataContainer" class="hodorBoxContainer">
+    <div class="ui container segment" >
+        <div class="header">
+            <h1>Fristen for å legge inn testdata er forbigått. </h1> 
+        </div>
+            <!--<div class="ui grid">
+
+                <div class="padded row centertext" *ngIf="state !== 4">
+                    Her kan du laste opp forespørsel om bevaring av testdata i nye testdataversjoner på registerplattformen. Vi kan ikke garantere at alle forespørsler vil bli godkjent, men tar utgangspunkt i å inkludere så mange av forespørslene som mulig.
+                </div>
+                <div class="ui form" *ngIf="state===0" id="typeSelectionRow">
+                    <div class="inline fields">
+                        <div class="field">
+                            <div class="ui radio checkbox">
+                                <input type="radio" name="frequency" checked="checked" (change)="personData=true" [value]="personData">
+                                <label>Personer</label>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui radio checkbox">
+                                <input type="radio" name="frequency" [value]="!personData" (change)="personData=false">
+                                <label>Virksomheter</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="two column row" *ngIf="state !== 4">
+                    <div class="three wide centered column" id="left-column">
+                        <div [class.active]="state <= 0">
+                            <div class="centertext">
+                                <div class="hodorStepIcon">1</div>
+                            </div>
+                            <div class="hodorGreenLabelText">FYLL INN DATA</div>
+                            <div class="labelLine"></div>
+                            <div class="centertext">
+                                <div class="hodorStepIcon">2</div>
+                            </div>
+                            <div class="hodorGreenLabelText">VERIFISER</div>
+                        </div>
+                        <div class="labelLine"></div>
+
+                        <div [class.active]="state === 1">
+                            <div class="centertext">
+                                <div class="hodorStepIcon">3</div>
+                            </div>
+                            <div class="hodorGreenLabelText">ARGUMENTER</div>
+                        </div>
+
+                        <div class="labelLine"></div>
+                        <div [class.active]="state > 1">
+                            <div class="centertext">
+                                <div class="hodorStepIcon">4</div>
+                            </div>
+                            <div class="hodorGreenLabelText">KONTAKT-<br/>OPPLYSNINGER
+                            </div>
+                            <div class="labelLine"></div>
+                            <div class="centertext">
+                                <div class="hodorStepIcon">5</div>
+                            </div>
+                            <div class="hodorGreenLabelText">REGISTRER</div>
+                        </div>
+
+                    </div>
+                    <div class="thirteen wide two row column" id="right-column">
+                        <div class="row">
+
+                            <person-data *ngIf="personData" [persons]="persons" [state]="state" (stateChange)="setState($event)"></person-data>
+                            <business-data *ngIf="!personData" [businesses]="businesses" [state]="state" (stateChange)="setState($event)"></business-data>
+                        </div>
+                        <div class="row">
+                            <div class="ui divider"></div>
+                            <contact-information [contactInformation]="contactInformation" [state]="state" (stateChange)="setState($event)"></contact-information>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="state === 4" class="centered row">
+                    <div>
+                        <h1 class="header" style="padding: 5em 2em">
+                            Din data er nå registert
+                        </h1>
+                    </div>
+                </div>
+                <div *ngIf="state === 5" class="centered row">
+                    <div class="ui warning message">
+                        En feil oppsto, vennligst prøv igjen
+                    </div>
+                </div>
+            </div>-->
+
+
+    </div>
+    
+</div>

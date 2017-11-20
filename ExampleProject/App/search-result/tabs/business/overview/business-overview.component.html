@@ -1,0 +1,22 @@
+﻿<div class="ui two column grid">
+    
+    <div class="column">
+        <information-container [information]="information"></information-container>
+        <div class="buttons-container">
+            <div class="buttons bottom attached">
+                <button *ngIf="this.hasChildren" class="ui basic button" (click)="showBedregChildren()">Se underenheter i BREG</button>
+            </div>
+        </div>
+    </div>
+    <div class="column">
+        <!--<div class="ui minimal comments luftbunn">
+            <h4>Kommentarer</h4>
+            <comments [comments]="this.item.detail?.comments"></comments>
+            <i>
+                <p *ngIf="this.item.detail?.comments?.length === 0">Ingen kommentarer</p>
+            </i>
+        </div>
+        <create-comment [commonIdentifier]="this.item.commonIdentifier"></create-comment>-->
+    </div>
+</div>
+

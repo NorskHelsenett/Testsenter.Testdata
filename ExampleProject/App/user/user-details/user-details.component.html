@@ -1,0 +1,98 @@
+﻿<form class="ui form" id="userForm">
+
+    <section [class.disabledsection]="disabled">
+
+        <div class="ui horizontal divider">Bruker i E-helse testdata</div>
+        <div class="testdataHeader" *ngIf="!showTestDataForm" (click)="showTestDataForm = true">
+            <p>
+                <span class="hodorGreenColor">Navn: </span>{{user.name}}
+            </p>
+            <p>
+                <span class="hodorGreenColor">Brukernavn/e-post: </span>{{user.username}}
+            </p>
+            <p>
+                <span class="hodorGreenColor">Rolle: </span>{{roles[user.roleValue]}}
+            </p>
+            <p>
+                <span class="hodorGreenColor">Område: </span>{{projects[user.projectValue]}}
+            </p>
+            <div class="ui button hodorPrimary" (click)="showTestData">Endre</div>
+        </div>
+
+
+        <div class="testdataContent" [hidden]="!showTestDataForm">
+            <div class="field" id="nameDiv">
+                <label for="name">Navn</label>
+                <input id="name" [(ngModel)]="user.name" name="name" placeholder="Fornavn og etternavn" type="text" />
+            </div>
+            <div class="centeredBox">
+                <div class="grouped fields">
+                    <label>Område</label>
+                    <div *ngFor="let item of projects; let i = index;" class="field">
+                        <div class="ui radio checkbox">
+                            <input type="radio" value="item"name="project" tabindex="0"
+                                   [checked]="i === user.projectValue" (change)="projectChecked(i)"> <label  [class.boldtext]="missing" >{{item}}</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="grouped fields">
+                    <label>Rolle</label>
+                    <div *ngFor="let item of roles; let i = index;" class="field">
+                        <div class="ui radio checkbox">
+                            <input type="radio" value="item" name="role" tabindex="0"
+                                   [checked]="i === user.roleValue" (change)="roleChecked(i)" >
+                            <label>{{item}}</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="field" id="epostadresseDiv">
+                <label>Brukernavn{{isNewUser ? '' : ' (kan ikke endres)'}}</label>
+                <div class="ui left icon input" [class.disabled]="!isNewUser">
+                    <i class="user icon"></i>
+                    <input id="username" [(ngModel)]="user.username" [readonly]="!isNewUser" name="username" placeholder="E-postadresse. Dette blir ditt brukernavn i testdata-applikasjonen" type="text">
+                </div>
+            </div>
+            <a id="showPasswordPanel" *ngIf="!showPasswordPanel && !isNewUser" (click)="showPasswordPanel = true" style="cursor: pointer">Endre passord</a>
+            <div id="passwordPanel" *ngIf="showPasswordPanel">
+                <div *ngIf="!isNewUser"class="field" id="passwordDiv">
+                    <label>Passord</label>
+                    <div class="ui left icon input">
+                        <i class="lock icon"></i>
+                        <input id="password" [(ngModel)]="user.oldPassword" name="password" placeholder="Nåværende passord" type="password">
+                    </div>
+                </div>
+                <div class="field" id="passwordDiv">
+                    <label *ngIf ="isNewUser">Passord</label>
+                    <div class="ui left icon input" >
+                        <i class="lock icon"></i>
+                        <input id="password" [(ngModel)]="user.password" name="password" placeholder="{{isNewUser ? 'Opprett et passord som blir knyttet til din bruker i testdata-applikasjonen' : 'Nytt Passord'}}" type="password">
+                    </div>
+                </div>
+                <div class="field" id="passwordRepeatDiv">
+                    <div class="ui left icon input">
+                        <i class="lock icon"></i>
+                        <input id="passwordrepeat" name="passwordrepeat" placeholder="{{isNewUser ? 'Gjenta passord' : 'Gjenta nytt passord'}}" type="password">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="rowBox">
+        <div class="row" [hidden]="termsAlreadyAccepted">
+            <termsofuse></termsofuse>
+            <div class="field">
+                <div class="ui checkbox">
+                    <input id="hasAcceptedTerms" type="checkbox" [(ngModel)]="user.hasAcceptedTerms" name="hasAcceptedTerms" tabindex="0" class="hidden" (change)="termsCheckBoxToggle()">
+                    <label>Jeg godtar vilkårene for bruk av denne applikasjonen </label>
+                </div>
+            </div>
+        </div>
+        <div class="ui error message"></div>
+        <div class="ui message negative" *ngIf="errorMessage">{{errorMessage}}</div>
+        <div class="row equalwidthbuttons" *ngIf="showTestDataForm">
+            <button class="ui button hodorPrimary" [class.loading]="loading" type="submit">{{newUser ? 'Registrer' : 'Lagre'}}</button>
+            <button class="ui button hodorSecondary" type="button" [class.disabled]="loading" (click)="cancel()">Tilbake</button>
+        </div>
+    </section>
+</form>

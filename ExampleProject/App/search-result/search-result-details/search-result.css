@@ -1,0 +1,63 @@
+﻿
+
+.tags {
+    cursor: default;
+    border-color: #70a8a3 !important;
+}
+
+#id-column {
+    width: 10% !important;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+#name-column {
+    width: 24% !important;
+    padding-right: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+#child-column {
+    width: 2% !important;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+#register-column {
+    width: 19% !important
+}
+
+#godkjenninger-column {
+    width: 19% !important;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+#tag-column {
+    width: 20% !important
+}
+
+#star-column {
+    width: 4% !important;
+}
+
+#dropdown {
+    width: 2% !important;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+#tagcoloumn {
+    margin-top: 0;
+}
+
+#godkjenninger {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+
+

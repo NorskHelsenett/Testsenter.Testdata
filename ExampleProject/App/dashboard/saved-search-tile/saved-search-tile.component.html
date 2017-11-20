@@ -1,0 +1,30 @@
+﻿<div class="ui basic segment">
+    <div class="ui inverted dimmer" [class.active]="loading">
+        <div class="ui loader"></div>
+    </div>
+    <p><i class="search icon" id="dashIcon"></i>{{selected === ownedBy.Me ? ' MINE' : ' ALLE'}} LAGREDE SØK
+    </p>
+    <div *ngFor="let query of searchList | slice:0:display" class="ui styled accordion filteraccordion accordiontitle dashboardGray">
+        <div class="ui title accordiontitle centered savedSearchHeader">
+            <span (click)="search(query); $event.stopPropagation()" class="search-name dropdownrightaccordion ellipses">"{{ query.friendlyName}}"</span>
+            <span *ngIf="query.description || selected !== ownedBy.Me" class="dropdown"><i class="dropdown right icon"></i></span>
+        </div>
+
+
+
+        <div class="content hodorBackground searchcontent">
+            <div *ngIf="selected !== ownedBy.Me"><b>Opprettet av: </b>{{ query.registeredByFriendlyName }} <br/></div>
+            <div *ngIf="selected !== ownedBy.Me"><b>Prosjekt: </b>{{ query.teamProjectInt | projectname }} <br /></div>
+            <div *ngIf="query.description"><b>Beskrivelse: </b>{{ query.description }}
+            </div>
+
+        </div>
+    </div>
+    <div *ngIf="searchList?.length === 0" class="ui center aligned segment hodorBackground dark dashboardGray">
+        {{selected === ownedBy.Me ? 'Du har ingen' : ' Det finnes ingen andre'}} lagrede søk.
+    </div>
+    <br/>
+    <span *ngIf="searchList?.length > numberToShow">
+        <a (click)="changeLength()">{{ display === numberToShow ? 'Vis alle' : 'Vis færre'}}</a>
+    </span>
+</div>

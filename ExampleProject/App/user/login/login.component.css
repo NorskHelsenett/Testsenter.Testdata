@@ -1,0 +1,54 @@
+﻿#createUserButton {
+    white-space: nowrap;
+}
+
+#loginBox {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    
+}
+
+#epostInput {
+    margin-bottom: 10px;
+}
+ 
+#passwordInput {
+    margin-bottom: 20px;
+}
+
+#loginContainer {
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+
+#loginForm {
+    flex-basis: 340px;
+    margin-bottom: 0;
+}
+
+#divide {
+    width: 4%;
+    align-self: stretch;
+    position: relative;
+}
+
+#formActions {
+    align-self: flex-end;
+}
+
+#errorbox {
+    padding: 1em;
+    margin-top: 0;
+}
+
+#forgotpassword {
+    margin-left: 20%;
+    color: #414141;
+}

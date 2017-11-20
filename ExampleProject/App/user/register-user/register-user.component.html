@@ -1,0 +1,46 @@
+﻿
+            <div class="ui horizontal divider">Bruker i registerplattformen (NHN)</div>
+            <div class="registerHeader" *ngIf="!showRegisterContent" style="cursor: pointer"
+                 (click)="showRegisterContent = true">
+                <div class="ui segment light fluid" [ngClass]="{'hodorRedNotice': !hasValidRegisterUser, 'hodorGreen light hodorGreenColor': hasValidRegisterUser, 'loading':loading}">
+                    <span *ngIf="hasValidRegisterUser"><i class="check big icon"></i><strong>Gyldig registerbruker:</strong> {{data.userName}}</span>
+                    <span *ngIf="!hasValidRegisterUser"><i class="remove big icon"></i><strong>Ugyldig registerbruker:</strong> {{data.userName}}</span>
+                </div>
+            </div>
+            <div class="registerContent" *ngIf="showRegisterContent">
+                <div id="registerUserInfo" class="ui message info">
+                    For å bruke E-helse testdata må du verifisere at du har bruker i registerplattformens testmiljø (https://register-web.test.nhn.no).<br>
+                    Informasjon om brukernavn og passord blir lagret slik at du kan bruke applikasjonen med riktige rettigheter. Mer informasjon finner du i vilkår for bruk.
+                </div>
+                <div class="field" id="registerEpostDiv">
+                    <div class="ui left icon input">
+                        <i class="user icon"></i>
+                        <input id="registerUserName" [(ngModel)]="data.userName"(keyup.enter)="checkRegisterUser()"  (blur)="checkValidUsername()" name="registerUserName" placeholder="Brukernavn i registerplattformen (reg.test-01)" type="text" autocomplete="off" />
+                    </div>
+                    <div class="ui message info" *ngIf="!validUsername"> Vennligst skriv inn et gyldig brukernavn</div>
+                </div>
+
+
+                <div *ngIf="!hasValidRegisterUser || updatingUser"></div>
+                <div class="field" id="registerPasswordDiv">
+                    <div class="ui left icon input">
+                        <i class="lock icon"></i>
+                        <input id="registerPassword" [(ngModel)]="data.password" (keyup.enter)="checkRegisterUser()" (blur)="checkPassword()" name="registerPassword" placeholder="Passord i registerplattformen (reg.test-01)" type="password" />
+                    </div>
+                    <div class="ui message info" *ngIf="!validPassword"> Vennligst fyll inn et gyldig password</div>
+                </div>
+
+                <div id="registerActions" class="ui centered grid">
+                    <div class="row" *ngIf="failed">
+                        <div id="notAuthenticated" class="ui message hodorRed light hodorRedTextColor" >
+                            Får ikke logget på register med brukernavn/passord.<br />
+                            Du kan sjekke om brukernavn/passord er riktig ved å logge inn på https://register-web.test.nhn.no
+                        </div>
+                    </div>
+                    <div class="row">
+                        <button class="ui button hodorPrimary" [class.loading]="loading" type="button" (click)="checkRegisterUser()" id="verifyRegisterUserButton">Verifiser registerbruker</button>
+                        <button class="ui button hodorSecondary" *ngIf="!isNewUser" [class.disabled]="loading" type="button" (click)="cancelRegisterUser()">Avbryt</button>
+                    </div>
+                </div>
+            </div>
+        <button *ngIf="!showRegisterContent"class="ui button hodorPrimary" (click)="showRegisterContent = true" id="endreRegisterBruker">Endre</button>

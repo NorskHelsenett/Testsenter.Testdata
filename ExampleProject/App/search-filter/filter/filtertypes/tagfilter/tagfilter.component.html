@@ -1,0 +1,7 @@
+﻿<label>
+    <select class="ui fluid search dropdown" multiple="" id="tagfilter">
+        <option value="">Søk etter data med tags</option>
+        <option *ngFor="let tag of taglist" [value]="tag.name" >{{tag.name | shorten: 20:'...'}}</option>
+    </select>
+</label>
+

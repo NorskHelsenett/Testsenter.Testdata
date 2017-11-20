@@ -1,0 +1,92 @@
+﻿#correlations {
+    overflow: auto;
+}
+
+.row {
+    padding: 40px;
+}
+
+
+.keyvalues{
+    margin-bottom: 50px !important;
+}
+
+.datatables {
+    max-height: 500px;
+    overflow: auto;
+}
+#keylabels{
+    margin-top: 10px;
+}
+
+#keytitle{
+    margin-bottom: 40px !important;
+}
+
+
+#stats-menu {
+    background-color: #F5F5F5;
+    margin-top:14px;
+    margin-bottom: 20px;
+}
+
+#tabmenu {
+    border-color: #313539;
+    margin-left: 15px !important;
+    margin-bottom: 0px !important;
+    margin-top: 14px;
+    background-color: #313539;
+}
+
+#stats-heading {
+    font-size: 20px;
+    color: #FFFFFF;
+    font-weight: normal;
+    padding-left: 95px;
+}
+
+#menurow{
+    /*padding-left: 15px;
+    padding-right: 30px;
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;*/
+    padding: 0px 30px 0px 15px !important;
+    background-color: #313539;
+    height: 56px !important;
+}
+
+
+#statsegment{
+    margin-left: 30px !important;
+    margin-right: 30px !important;
+    background-color: #F5F5F5 !important;
+}
+
+#agedata{
+    background-color: #FFFFFF !important;
+    margin-top: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+
+}
+
+
+
+label.fileLabel input[type="file"] {
+    display:none
+}
+
+tr th:not(:first-child){
+    cursor: pointer !important;
+    text-decoration: underline;   
+}
+
+.ui.table tr.warning, .ui.table td.warning {
+    background: #fcf967 !important;
+    color: black !important;
+}
+
+.ui.table tr.error, .ui.table td.error {
+    background: #fc5e46 !important;
+    color: black !important;
+}

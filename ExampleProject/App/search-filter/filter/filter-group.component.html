@@ -1,0 +1,84 @@
+﻿<div *ngIf="filter.items != undefined && filter.items.length > 0 &&  !filter.isCustome" class="item">
+    <div class="content">
+        <div class="header extraluft" id="heading">
+            <b> {{ filter.name }} </b>
+        </div>
+        <div class="description">
+
+            <div [ngSwitch]="filter.type">
+
+
+                <div *ngFor="let item of displayFullList ? filter.items : prioritizedFilters" class="description filterluft">
+                    <div *ngSwitchCase="'textbox'">
+                        <div class="ui mini input">
+                            <input [placeholder]="item.name" [(ngModel)]="item.parameter"
+                                   type="text" [id]="item.uniquevalue" [name]="item.name" (keyup.enter)="onInputBoxChange(item)">
+                            <i class="angle link big right icon" (click)="onInputBoxChange(item)"></i>
+                        </div>
+                    </div>
+                    <div *ngSwitchCase="'radio'">
+                        <label>
+                            <input [(ngModel)]="item.selected" (change)="onRadioButtonSelect(item)"
+                                   [id]="item.uniquevalue" [type]="filter.type" [name]="item.name" [checked]="item.selected">
+                            {{ item.displayName }}
+                        </label>
+                    </div>
+                    <div *ngSwitchCase="'checkbox'">
+                        <label>
+                            <input [(ngModel)]="item.selected" (change)="onCheckBoxSelect(item)"
+                                   [id]="item.uniquevalue" [type]="filter.type" [checked]="item.selected" [name]="item.name">
+                            {{ item.displayName}}
+                        </label>
+                    </div>
+                    <div *ngSwitchCase="'numberbox'">
+                        <div class="ui mini input">
+                            <input [placeholder]="item.name" [(ngModel)]="item.parameter" onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                                   type="text" [id]="item.uniquevalue" [name]="item.name" (keyup.enter)="onInputBoxChange(item)">
+                            <i class="angle link big right icon" (click)="onInputBoxChange(item)"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div *ngIf="hasMore" id="show-all">
+                    <a *ngIf="!displayFullList" (click)="showMore()" class="lenke">Vis alle</a>
+                    <a *ngIf="displayFullList" (click)="showLess()" class="lenke">Vis kun vanligste</a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<div *ngFor="let group of filter.groups">
+    <filter-group [filter]="group"></filter-group>
+</div>
+<div *ngIf="filter.isCustome">
+    <div [ngSwitch]="filter.type" class="extraluft">
+        <div *ngSwitchCase="'age'">
+            <div class="header extraluft">
+                <b>{{filter.name}}</b>
+            </div>
+            <agebox [filters]="filter.items"></agebox>
+        </div>
+        <div *ngSwitchCase="'children'">
+            <div class="header extraluft" id="children-header">
+                <b>Barn</b>
+            </div>
+            <children-filter [group]="filter"></children-filter>
+        </div>
+        <div *ngSwitchCase="'linkedCheckbox'">
+            <div class="header extraluft">
+                <b>{{filter.name}}</b>
+            </div>
+            <parent-filter [group]="filter"></parent-filter>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+

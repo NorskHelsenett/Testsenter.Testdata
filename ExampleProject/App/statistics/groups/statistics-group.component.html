@@ -1,0 +1,5 @@
+﻿<select class="ui dropdown" [(ngModel)]="selectedAge">
+    <option value="">Alle</option>
+    <option *ngFor="let age of ages" [value]="age">{{getAgeQuantName(age)}}</option>
+</select>
+

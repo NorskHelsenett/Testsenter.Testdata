@@ -1,0 +1,15 @@
+﻿<div class="ui mini input">
+    <label [class.boldtext]="!isMinUnChanged">
+
+
+        <input placeholder="Minst" (blur)="onBlur(true)" (keyup.enter)="onInput(true)" [(ngModel)]="valueMin" onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+               id="agemin" type="text" value="" style="width: 50px;" name="Min" maxlength="3" >
+    </label>
+    
+    <label [class.boldtext]="!isMaxUnChanged">
+        <input placeholder="Maks" (blur)="onBlur(false)" (keyup.enter)="onInput(false)" [(ngModel)]="valueMax" onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+               type="text" id="agemax" style="width: 50px;" name="Max" maxlength="3" >
+    </label>
+</div>
+<i class="angle link big right icon" (click)="performeSearch()"></i>
+

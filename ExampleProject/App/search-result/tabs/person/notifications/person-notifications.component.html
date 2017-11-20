@@ -1,0 +1,78 @@
+﻿
+<div class="ui grid">
+    <div class="left aligned column" id="surv_column">
+        <b>Varsle meg hvis... </b> <div class="ui tiny inline loader" [class.active]="loading"></div>
+</div>
+    <div class="column center aligned">Status</div>
+    <div class="three wide column center aligned"></div>
+    <div class="two wide column center aligned">Sist sjekket</div>
+    <div class="column right aligned" id="dropdown"></div>
+</div>
+
+    <ng-container *ngFor="let surveillance of item.detail.surveillances; let last=last">
+        <div class="ui title">
+
+            <div class="ui grid" id="content_table">
+                <div class="left aligned column" id="surv_column">
+                    <input type="checkbox" #check [(ngModel)]="surveillance.isChecked" onclick="event.stopPropagation()" (change)="toggleSurveillance(surveillance)">
+                    <label class="surveillancelabel">
+                        {{surveillance.actionFriendlyName}} endres i {{surveillance.registerName | uppercase }} <span class="extra" *ngIf="surveillance.latestSurveillanceResultForMyTeam">({{surveillance.latestSurveillanceResultForMyTeam?.registeredBy}})</span>
+                    </label>
+                </div>
+                <div [ngSwitch]="surveillance.latestSurveillanceResultForMyTeam?.success" class="column center aligned">
+             
+                    <div *ngSwitchCase="true">
+                        <i class="large check circle outline icon icongreen"></i>
+                    </div>
+                    <div *ngSwitchCase="false" class="column center aligned"> 
+                        <i class="large remove circle outline icon iconred"></i>
+                    </div>
+                   
+                </div>
+
+                <div class="three wide column center aligned">
+
+                    <div *ngIf="shouldShowAcceptButton(surveillance) | async" class="column center aligned">
+                        <div class="ui mini button basic" [class.loading]="accepting" (click)="acceptChanges(surveillance, $event)"> Godta endringer</div>
+                    </div>
+                </div>
+
+                <div class="two wide column center aligned"> {{ surveillance.latestSurveillanceResultForMyTeam?.checkedAt | simpledate}}</div>
+                <div class="column right aligned" id="dropdown">
+                    <i class="dropdown icon"></i>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="content">
+            <div class="row">
+                <div class="ui {{ surveillance.latestSurveillanceResultForMyTeam?.success === false ? 'three' : 'one' }} column grid">
+                    <div class="column">
+                        <span class="littleluft">Nåværende objekt</span>
+                        <simple-json-detail [jsonObject]="getJsonDetailObject(surveillance, true)"></simple-json-detail>
+                    </div>
+                    <ng-container *ngIf="surveillance.latestSurveillanceResultForMyTeam?.success === false">
+                        <div class="column">
+                            <span class="littleluft">
+                                Opprinnelig objekt
+                            </span>
+                            <simple-json-detail [jsonObject]="getJsonDetailObject(surveillance, false)"></simple-json-detail>
+                        </div>
+                        <div class="column">
+                            <span class="littleluft">
+                                Endringer
+                            </span>
+                            <simple-json-diff [before]="getJsonDetailObject(surveillance, false)" [after]="getJsonDetailObject(surveillance, true)"></simple-json-diff>
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="!last" class="ui divider"></div>
+    </ng-container>
+
+
+
+

@@ -1,0 +1,24 @@
+﻿.ui.comments:last-child {
+    margin-bottom: 10px;
+}
+
+.detailed .content{
+    padding: 0 1em !important;
+}
+
+.idlink {
+    text-decoration: underline;
+    cursor: pointer;
+    color: #676767;
+    margin-left: 0px;
+}
+
+#detailDate{
+    margin-left: 0px;
+    font-size: 0.875em;
+}
+#detailNIN{
+    color: #676767;
+    margin-left: 0px;
+    font-size: 0.875em;
+}

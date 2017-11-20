@@ -1,0 +1,27 @@
+﻿<div class="ui grid">
+    <div class="two column row" id="type-selection-row">
+            <div class="center aligned column">
+                <i class="large child link icon" (click)="switchIndex(Indexes.Person)" [class.disabled]="currentIndex == Indexes.Business"></i>
+            </div>
+            <div class="center aligned column">
+                <i class="large building link icon" (click)="switchIndex(Indexes.Business)" [class.disabled]="currentIndex == Indexes.Person"></i>
+        </div>
+    </div>
+    <div class="row">
+        <div class="ui form content fullwidth" id="search-container">
+
+            <div class="ui icon input fullwidth" id="search-box">
+                <input #personSearch type="text" id="person-search-input" placeholder="Søk.." [(ngModel)]="searchTerm"
+                       (keyup.enter)="search(personSearch.value)" (blur)="blur(personSearch.value)">
+                <i *ngIf="!loading" id="person-search-clickable" class="big search link icon" (click)="search(personSearch.value)"></i>
+                <i *ngIf="loading" id="person-search-cancel-clickable" class="big remove circle link icon right" (click)="cancelSearch()"></i>
+            </div>
+            <div class="extra-info" id="extra-info" *ngIf="currentIndex == Indexes.Person">Fødselsnr., HPR-nr. eller navn</div>
+            <div class="extra-info" id="extra-info" *ngIf="currentIndex == Indexes.Business">Org.nr., her-id, resh-id eller navn</div>
+        </div>
+
+        <div *ngIf="message" class="ui {{messageClass}} message left" id="message-box">
+            <p>{{message}}</p>
+        </div>
+    </div>
+</div>

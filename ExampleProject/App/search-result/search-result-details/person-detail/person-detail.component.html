@@ -1,0 +1,51 @@
+﻿
+<div class="ui container accordion-content">
+        
+    <div class="ui top attached tabular menu">
+        <a class="active item" data-tab="oversikt">Oversikt</a>
+        <a *ngIf="containsPersonInformation" class="item" data-tab="personlig">Personlig</a>
+        <a *ngIf="containsProfessionalInformation" class="item" data-tab="profesjonelt">Profesjonelt</a>
+        <a *ngIf="containsDifiInformation" class="item" data-tab="difi">Difi</a>
+        <a class="item" data-tab="varslinger">Varslinger</a>
+    </div>
+
+    <div class="ui bottom attached tab segment active" data-tab="oversikt">
+        <div class="ui fluid multiple search selection dropdown" id="{{commonid}}-dropdown">
+            <input name="tags" type="hidden">
+            <i class="dropdown icon"></i>
+            <div class="default text">Tags</div>
+            <div class="menu">
+                    <div *ngFor="let tag of tags" class="item" [attr.data-value]="tag.name">{{tag.name}}</div>
+            </div>
+        </div>
+        <div class="ui divider"></div>
+
+        <person-overview [item]="this.person" (showDetails)="showDetails($event)"></person-overview>
+    </div>
+    <div  *ngIf="containsPersonInformation" class="ui bottom attached tab segment" data-tab="personlig">
+        <person-personal [item]="this.person" (_showDetails)="showDetails($event)" [loadingFamily]="loadingFamily"></person-personal>
+    </div>
+    <div *ngIf="containsProfessionalInformation" class="ui bottom attached tab segment" data-tab="profesjonelt">
+        <person-professional [item]="this.person" (_showDetails)="showDetails($event)" ></person-professional>
+
+    </div>
+    <div *ngIf="containsDifiInformation" class="ui bottom attached tab segment" data-tab="difi">
+        <person-difi [item]="this.person" (_showDetails)="showDetails($event)" ></person-difi>
+    </div>
+    <div class="ui bottom attached tab segment" data-tab="varslinger">
+        <person-notifications [item]="this.person"></person-notifications>
+    </div>
+</div>
+
+<div [ngSwitch]="currentView" >
+    <div *ngIf="currentView != childViews.None"></div>
+
+    <div *ngSwitchCase="childViews.Json" >
+        <json-detail [content]="currentHit"  (onClose)="closeDetails($event)"></json-detail>
+    </div>
+    <div *ngSwitchCase="childViews.Family">
+        <family [family]="family" (onClose)="closeDetails($event)"></family>
+    </div>
+</div>
+
+<div *ngIf="errorMessage" class="ui message error">{{errorMessage}}</div>

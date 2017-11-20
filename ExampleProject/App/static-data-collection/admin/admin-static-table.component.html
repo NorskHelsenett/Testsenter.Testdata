@@ -1,0 +1,68 @@
+﻿<div style="float: right; margin-bottom:5px">
+    <button class="ui button hodorPrimary" (click)="approve()" [class.disabled]="approveList.length === 0">Godkjenn</button>
+    <button class="ui button hodorSecondary" (click)="approveList = []" [class.disabled]="approveList.length === 0">Reset</button>
+</div>
+  
+<table class="ui celled padded selectable structured table">
+    <thead>
+    <tr>
+        <th (click)="sort('index')">Id</th>
+        <th (click)="sort('business')">Bedrift</th>
+        <th (click)="sort('name')">Navn</th>
+        <th (click)="sort('date')">Dato</th>
+        <th (click)="sort('id')">ID</th>
+        <th *ngIf="isPerson" (click)="sort('buypass')">Buypass</th>
+        <th *ngIf="isPerson"  (click)="sort('commfides')">Commfides</th>
+        <th (click)="sort('personcomment')">Begrunnelse</th>
+        <th (click)="sort('registers')">Registre</th>
+        <th (click)="sort('hodorcomment')">Kommentar</th>
+        <th (click)="sort('approved')">Godkjent</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let person of rows; let i = index;" [class.active]="isSelected(person.key, person.id)" (click)="addToList(person.key, person.id, $event, i)">
+        <td>
+            {{person.index}}
+        </td>
+        <td>
+            {{person.business}} <br/>
+            <span class="extra">{{person.comment}}</span>
+        </td>
+        <td>
+            {{person.name}} <br/>
+            <span *ngIf="person.email" class="extra">({{person.email}})</span>
+        </td>
+        <td>
+            {{person.date | date:'d.M.y kl.H.m'}}
+        </td>
+        <td>
+            {{person.id}}
+        </td>
+        <td *ngIf="isPerson" >
+            <i *ngIf="person.buypass" class="checkmark  icon hodorGreenColor"></i>
+        </td>
+        <td *ngIf="isPerson" >
+            <i *ngIf="person.commfides" class="checkmark  icon hodorGreenColor"></i>
+        </td>
+        <td>
+            {{person.personcomment}}
+        </td>
+        <td>
+            {{person.registers}}
+        </td>
+        <td>
+            <span *ngIf="activeComment !== i">{{person.hodorcomment}} <i class="edit icon" (click)="activeComment = i" style="float: right"></i></span>
+            <div *ngIf="activeComment === i" class="ui action input">
+                <input type="text" [(ngModel)]="person.hodorcomment" >
+                <button class="ui button" (click)="saveComment(person)" [class.disabled]="saving">Lagre</button>
+                <button class="ui button" [class.disabled]="saving" (click)="activeComment = -1">Avbryt</button>
+            </div>
+
+        </td>
+        <td>
+            <i *ngIf="!person.approved" class="remove icon hodorRedColor"></i>
+            <i *ngIf="person.approved" class="checkmark  icon hodorGreenColor"></i>
+        </td>
+    </tr>
+    </tbody>
+</table>

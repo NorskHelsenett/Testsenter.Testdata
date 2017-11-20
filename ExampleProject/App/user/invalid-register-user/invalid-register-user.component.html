@@ -1,0 +1,20 @@
+﻿<div id="formContainer">
+    <div class="ui container segment" style="padding: 0;">
+        <div class="hodorPrimary header">
+            NHN Register bruker
+        </div>
+
+        <form class="ui form" id="userForm">
+            <div class="ui {{isLoading}} dimmer">
+                <div class="ui text loader">Loading</div>
+            </div>
+            <section>
+                <div id="invalidregisterUserInfo" class="ui segment centertext">
+                    <b>Brukeren din ser ut til å ha blitt endret hos Registerplatformen.<br /></b>
+                    Vennligst oppdater brukerinformasjonen din slik at du kan benytte deg av denne siden.
+                </div>
+                <register-user (onSuccess)="onSuccess()" (onCancel)="onCancel()" [showRegisterContent]="true"></register-user>
+            </section>
+        </form>
+    </div>
+</div>

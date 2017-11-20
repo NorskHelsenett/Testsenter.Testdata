@@ -1,0 +1,38 @@
+﻿<base href="/">
+@if (HttpContext.Current.IsDebuggingEnabled)
+{
+    <script>console.log("Hei fra dev");</script>
+    <!-- Polyfill(s) for older browsers -->
+    <script src="~/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="~/node_modules/core-js/client/shim.min.js"></script>
+    <script src="~/node_modules/zone.js/dist/zone.js"></script>
+    <script src="~/node_modules/reflect-metadata/Reflect.js"></script>
+    <script src="~/node_modules/systemjs/dist/system.src.js"></script>
+    <script src="~/node_modules/json-formatter-js/dist/json-formatter.js"></script>
+
+    <script src="~/node_modules/classlist-polyfill/src/index.js"></script>
+    <script src="~/systemjs.config.js"></script>
+    <link href="~/node_modules/ng2-toastr/bundles/ng2-toastr.min.css" rel="stylesheet" />
+    <script src="~/node_modules/ng2-toastr/bundles/ng2-toastr.min.js"></script>
+    <script type="text/javascript" src="~/bower_components/jsondiffpatch/public/build/jsondiffpatch.min.js"></script>
+    <script type="text/javascript" src="~/bower_components/jsondiffpatch/public/build/jsondiffpatch-formatters.min.js"></script>
+    <link rel="stylesheet" href="~/bower_components/jsondiffpatch/public/formatters-styles/html.css" type="text/css" />
+    <script>
+        System.import('app').catch(function (err) { console.error(err); });
+    </script>
+}
+else
+{
+    <link rel="stylesheet" href="~/Content/Styles/vendors.min.css" type="text/css" />
+    <script>console.log("Hei fra prod");</script>
+    <script src="~/Scripts/vendors.min.js"></script>
+    <script src="~/Scripts/app.js"></script>
+    <script type="text/javascript" src="~/bower_components/jsondiffpatch/public/build/jsondiffpatch.min.js"></script>
+    <script type="text/javascript" src="~/bower_components/jsondiffpatch/public/build/jsondiffpatch-formatters.min.js"></script>
+    <link rel="stylesheet" href="~/bower_components/jsondiffpatch/public/formatters-styles/html.css" type="text/css" />
+}
+<my-app>
+    <div class="ui active inverted dimmer">
+        <div class="ui text loader">Loading</div>
+    </div>
+</my-app>

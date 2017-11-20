@@ -1,0 +1,16 @@
+﻿
+<div class="luftbunn lufttop">
+
+    <label>
+        <select class="ui fluid search dropdown savedSearchList">
+            <option value="">Navn på søk</option>
+            <option *ngFor="let search of searchList | savedsearch: selected : index | async" [value]="search.dbName">{{search.friendlyName}}</option>
+        </select>
+    </label>
+</div>
+
+<div class="ui fluid small buttons">
+    <button class="ui button" (click) ="selected = ownedBy.Me" [class.active]="selected === ownedBy.Me">Mine</button>
+    <button class="ui button" (click) ="selected = ownedBy.Project" [class.active]="selected === ownedBy.Project">Prosjektes</button>
+    <button class="ui button" (click) ="selected = ownedBy.All" [class.active]="selected === ownedBy.All">Alle</button>
+</div>

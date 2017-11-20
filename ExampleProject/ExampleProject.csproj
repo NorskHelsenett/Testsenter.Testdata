@@ -1,0 +1,625 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\..\..\packages\Microsoft.TypeScript.MSBuild.2.4.1\build\Microsoft.TypeScript.MSBuild.props" Condition="Exists('..\..\..\packages\Microsoft.TypeScript.MSBuild.2.4.1\build\Microsoft.TypeScript.MSBuild.props')" />
+  <Import Project="..\..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.2\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.2\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\..\..\packages\Microsoft.Net.Compilers.2.3.1\build\Microsoft.Net.Compilers.props" Condition="Exists('..\..\..\packages\Microsoft.Net.Compilers.2.3.1\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <Import Project="..\packages\Microsoft.TypeScript.MSBuild.2.1.4\build\Microsoft.TypeScript.MSBuild.props" Condition="Exists('..\packages\Microsoft.TypeScript.MSBuild.2.1.4\build\Microsoft.TypeScript.MSBuild.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{81AF4C9A-4411-4FE0-A12C-7002B3B700B6}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TestdataApp.ExampleProject</RootNamespace>
+    <AssemblyName>ExampleProject</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort>1998</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TypeScriptToolsVersion>2.2</TypeScriptToolsVersion>
+    <TargetFrameworkProfile />
+    <Use64BitIISExpress>false</Use64BitIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>0</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ApiClientShared, Version=2.0.0.0, Culture=neutral, PublicKeyToken=6e6972f540d5419a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\api-client-shared.2.0.0\lib\net45\ApiClientShared.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging, Version=3.3.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Common.Logging.3.3.1\lib\net40\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Core, Version=3.3.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Common.Logging.Core.3.3.1\lib\net40\Common.Logging.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.ApplicationInsights.2.4.0\lib\net46\Microsoft.ApplicationInsights.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights.Log4NetAppender, Version=2.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.ApplicationInsights.Log4NetAppender.2.4.0\lib\net45\Microsoft.ApplicationInsights.Log4NetAppender.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.TelemetryCorrelation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.AspNet.TelemetryCorrelation.1.0.0\lib\net45\Microsoft.AspNet.TelemetryCorrelation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Azure.KeyVault.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.Azure.KeyVault.Core.1.0.0\lib\net40\Microsoft.Azure.KeyVault.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Azure.Search, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.Azure.Search.3.0.4\lib\net452\Microsoft.Azure.Search.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Build.Tasks.v4.0" />
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.2\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Data.Edm, Version=5.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.Data.Edm.5.8.0\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData, Version=5.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.Data.OData.5.8.0\lib\net40\Microsoft.Data.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Services.Client, Version=5.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.Data.Services.Client.5.8.0\lib\net40\Microsoft.Data.Services.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.Owin.3.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Rest.ClientRuntime, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.Rest.ClientRuntime.2.3.9\lib\net452\Microsoft.Rest.ClientRuntime.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Rest.ClientRuntime.Azure, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.Rest.ClientRuntime.Azure.3.3.9\lib\net452\Microsoft.Rest.ClientRuntime.Azure.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Spatial, Version=7.3.1.10814, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.Spatial.7.3.1\lib\portable-net45+win8+wpa81\Microsoft.Spatial.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Storage, Version=7.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\WindowsAzure.Storage.7.2.1\lib\net40\Microsoft.WindowsAzure.Storage.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=3.5.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\NUnit.3.5.0\lib\net45\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Diagnostics.DiagnosticSource.4.4.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http, Version=4.1.1.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Net.Http.4.3.2\lib\net46\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net461\System.Security.Cryptography.Algorithms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Spatial, Version=5.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Spatial.5.8.0\lib\net40\System.Spatial.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Owin, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.AspNet.WebApi.Owin.5.2.3\lib\net45\System.Web.Http.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Xml.ReaderWriter, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Xml.ReaderWriter.4.3.0\lib\net46\System.Xml.ReaderWriter.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App\app.component.css" />
+    <Content Include="App\app.component.html" />
+    <Content Include="App\search-result\search-result-details\business-detail\business-detail.component.css" />
+    <Content Include="App\search-result\search-result-details\business-detail\business-detail.component.html" />
+    <Content Include="App\dashboard\apikey-tile\apikey-tile.component.html" />
+    <Content Include="App\dashboard\comments-tile\comments-tile.component.html" />
+    <Content Include="App\dashboard\dashboard.component.css" />
+    <Content Include="App\dashboard\dashboard.component.html" />
+    <Content Include="App\search-result\search-result-details\search-result.css" />
+    <Content Include="App\search-result\tabs\business\ar\business-ar.component.html" />
+    <Content Include="App\search-result\tabs\business\bedreg\business-bedreg.component.html" />
+    <Content Include="App\search-result\tabs\business\flr\business-flr.component.html" />
+    <Content Include="App\search-result\tabs\business\overview\business-overview.component.html" />
+    <Content Include="App\search-result\search-result-details\business-search-detail\business-search-detail.component.html" />
+    <Content Include="App\search-result\search-result-list\business-search-list\business-search-list.component.html" />
+    <Content Include="App\search-result\search-result-list\person-search-list\person-search-list.component.html" />
+    <Content Include="App\core\title\title.component.css" />
+    <Content Include="App\core\title\title.component.html" />
+    <Content Include="App\core\title\user-information\user-information.component.css" />
+    <Content Include="App\core\title\user-information\user-information.component.html" />
+    <Content Include="App\shared\error\error-message.component.html" />
+    <Content Include="App\user\login\login.component.css" />
+    <Content Include="App\user\login\login.component.html" />
+    <Content Include="App\shared\comments\comments.component.css" />
+    <Content Include="App\shared\comments\comments.component.html" />
+    <Content Include="App\shared\comments\create-comment.component.html" />
+    <Content Include="App\dashboard\latest-checks-tiles\latest-checks-tile.component.html" />
+    <Content Include="App\dashboard\links-tile\links-tile.component.html" />
+    <Content Include="App\dashboard\saved-search-tile\saved-search-tile.component.html" />
+    <Content Include="App\dashboard\tag-list-tile\tag-list-tile.component.html" />
+    <Content Include="App\dashboard\tag-tile\tag-tile.component.html" />
+    <Content Include="App\shared\detailedWindow\json-detail\json-detail.component.html" />
+    <Content Include="App\search-result\tabs\person\difi\person-difi.component.html" />
+    <Content Include="App\index\index.component.css" />
+    <Content Include="App\index\index.component.html" />
+    <Content Include="App\shared\detailedWindow\detailedWindow.css" />
+    <Content Include="App\shared\detailedWindow\family\family.component.css" />
+    <Content Include="App\shared\detailedWindow\family\family.component.html" />
+    <Content Include="App\search-filter\filter\filtertypes\agebox\agebox.component.css" />
+    <Content Include="App\search-filter\filter\filtertypes\agebox\agebox.component.html" />
+    <Content Include="App\search-filter\filter\filter-container.component.css" />
+    <Content Include="App\search-filter\filter\filter-container.component.html" />
+    <Content Include="App\search-filter\filter\filter-group.component.html" />
+    <Content Include="App\search-filter\filter\filtertypes\children\children-filter.component.html" />
+    <Content Include="App\search-filter\filter\filtertypes\tagfilter\tagfilter.component.html" />
+    <Content Include="App\search-result\tabs\information-container\information-container.component.html" />
+    <Content Include="App\search-result\tabs\person\overview\person-overview.component.html" />
+    <Content Include="App\search-result\tabs\person\notifications\person-notifications.component.css" />
+    <Content Include="App\search-result\tabs\person\notifications\person-notifications.component.html" />
+    <Content Include="App\search-result\tabs\person\personal\person-personal.component.html" />
+    <Content Include="App\search-result\tabs\person\professional\person-professional.component.html" />
+    <Content Include="App\search-result\tabs\tab.css" />
+    <Content Include="App\search-result\search-result-details\person-detail\person-detail.component.css" />
+    <Content Include="App\search-result\search-result-details\person-detail\person-detail.component.html" />
+    <!--<Content Include="App\person\surveillance\person-list\person-list.component.css" />
+    <Content Include="App\person\surveillance\person-list\person-list.component.html" />-->
+    <Content Include="App\search-result\active-filters\active-filters.component.html" />
+    <Content Include="App\search-result\active-filters\active-filters.component.css" />
+    <Content Include="App\search-filter\search-box\search-box.component.css" />
+    <Content Include="App\search-filter\search-box\search-box.component.html" />
+    <Content Include="App\search-filter\saved-search\saved-search.component.css" />
+    <Content Include="App\search-filter\saved-search\saved-search.component.html" />
+    <Content Include="App\search-result\search-result-details\person-search-detail\person-search-detail.component.css" />
+    <Content Include="App\search-result\search-result-details\person-search-detail\person-search-detail.component.html" />
+    <Content Include="App\search-result\search-result-list\search-list.component.css" />
+    <Content Include="App\search-result\search-result-list\search-list.component.html" />
+    <Content Include="App\surveillance\surveillance-list\surveillance-list.component.css" />
+    <Content Include="App\surveillance\surveillance-list\surveillance-list.component.html" />
+    <Content Include="App\surveillance\surveillance-overview\surveillance-overview.component.css" />
+    <Content Include="App\dashboard\surveillance-status-tile\surveillance-status-tile.component.css" />
+    <Content Include="App\dashboard\surveillance-status-tile\surveillance-status-tile.component.html" />
+    <Content Include="App\static-data-collection\admin\admin-static-data.component.html" />
+    <Content Include="App\static-data-collection\admin\admin-static-table.component.html" />
+    <Content Include="App\static-data-collection\business-data\business-data.component.html" />
+    <Content Include="App\static-data-collection\contact-information\contact-information.component.html" />
+    <Content Include="App\static-data-collection\person-data\person-data.component.html" />
+    <Content Include="App\static-data-collection\shared\static-data-shared.component.html" />
+    <Content Include="App\static-data-collection\static-data.css" />
+    <Content Include="App\statistics\compare\statistics-compare.component.html" />
+    <Content Include="App\statistics\correlation\statistics-correlation.component.html" />
+    <Content Include="App\statistics\detailed\statistics-detailed.component.html" />
+    <Content Include="App\statistics\groups\statistics-group.component.html" />
+    <Content Include="App\statistics\overview\statistics-overview.component.html" />
+    <Content Include="App\statistics\shared\statistics-shared.component.html" />
+    <Content Include="App\statistics\statistics-index.component.html" />
+    <Content Include="App\statistics\statistics.css" />
+    <Content Include="App\user\change-password\change-password.component.html" />
+    <Content Include="App\user\create-user\create-user-success.component.html" />
+    <Content Include="App\user\create-user\create-user.component.html" />
+    <Content Include="App\user\forgotten-password\forgotten-password.component.html" />
+    <Content Include="App\user\invalid-register-user\invalid-register-user.component.html" />
+    <Content Include="App\user\register-user\register-user.component.css" />
+    <Content Include="App\user\register-user\register-user.component.html" />
+    <Content Include="App\user\terms\terms.component.html" />
+    <Content Include="App\user\update-user\update-user.component.html" />
+    <Content Include="App\user\user-details\user-details.component.html" />
+    <Content Include="App\user\user.component.css" />
+    <Content Include="bower_components\jsondiffpatch\public\build\jsondiffpatch-formatters.js" />
+    <Content Include="bower_components\jsondiffpatch\public\build\jsondiffpatch-formatters.min.js" />
+    <Content Include="bower_components\jsondiffpatch\public\build\jsondiffpatch-full.js" />
+    <Content Include="bower_components\jsondiffpatch\public\build\jsondiffpatch-full.min.js" />
+    <Content Include="bower_components\jsondiffpatch\public\build\jsondiffpatch.js" />
+    <Content Include="bower_components\jsondiffpatch\public\build\jsondiffpatch.min.js" />
+    <Content Include="bower_components\jsondiffpatch\public\external\diff_match_patch_uncompressed.js" />
+    <Content Include="bower_components\jsondiffpatch\public\formatters-styles\annotated.css" />
+    <Content Include="bower_components\jsondiffpatch\public\formatters-styles\html.css" />
+    <Content Include="bower_components\jsondiffpatch\public\index.html" />
+    <Content Include="Content\delete_search_circle3.png" />
+    <Content Include="Content\e-helse_hovedlogo_hvit.png" />
+    <Content Include="Content\e-helse_logo_monster_white.png" />
+    <Content Include="Content\ehelselogo_small_notext.png" />
+    <Content Include="Content\reset_filter.png" />
+    <Content Include="Content\reset_filter_big.png" />
+    <Content Include="Content\reset_filter_circle.png" />
+    <Content Include="Content\save_search_circle5.png" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\Styles\vendors.min.css" />
+    <Content Include="Global.asax" />
+    <Content Include="Gulpfile.js" />
+    <Compile Include="Config\DiHelper.cs" />
+    <Compile Include="Config\ExampleConstantsProvider.cs" />
+    <Compile Include="Config\Mock\FamilyProvider.cs" />
+    <Compile Include="Config\Mock\FilterBelonging.cs" />
+    <Compile Include="Config\Mock\MockBusinessAzureSearch.cs" />
+    <Compile Include="Config\Mock\MockPersonAzureSearch.cs" />
+    <Compile Include="Config\Mock\QuantifyAge.cs" />
+    <Compile Include="Config\Mock\RegisterBusinessLogic.cs" />
+    <Compile Include="Config\Mock\RegisterPersonLogic.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="Config\Mock\Filter\GrunndataBusinessFilter.cs" />
+    <Compile Include="Config\Mock\Filter\GrunndataBusinessFilterConst.cs" />
+    <Content Include="package.json" />
+    <Content Include="Scripts\app.js" />
+    <Content Include="packages.config" />
+    <None Include="Resources\hprData.json" />
+    <None Include="Resources\indexdata.json" />
+    <None Include="Resources\pregData.json" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\vendors.min.js" />
+    <Content Include="systemjs.config.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="tsconfig.json" />
+    <Content Include="typings.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="App\core\services\codes-manager.service.ts" />
+    <TypeScriptCompile Include="App\core\services\comments-manager.service.ts" />
+    <TypeScriptCompile Include="App\helpers\dictonary.ts" />
+    <TypeScriptCompile Include="App\search-result\search-result.module.ts" />
+    <TypeScriptCompile Include="App\search-result\search-result-details\business-detail\business-detail.component.ts" />
+    <TypeScriptCompile Include="App\search-result\tabs\business\business-base-hit-tab.ts" />
+    <TypeScriptCompile Include="App\search-result\tabs\business\ar\business-ar.component.ts" />
+    <TypeScriptCompile Include="App\search-result\tabs\business\bedreg\business-bedreg.component.ts" />
+    <TypeScriptCompile Include="App\search-result\tabs\business\flr\business-flr.component.ts" />
+    <TypeScriptCompile Include="App\search-result\tabs\business\overview\business-overview.component.ts" />
+    <TypeScriptCompile Include="App\search-result\tabs\person\person-base-hit-tab.ts" />
+    <TypeScriptCompile Include="App\search-result\search-result-details\business-search-detail\business-search-details.component.ts" />
+    <TypeScriptCompile Include="App\search-result\search-result-list\business-search-list\business-search-list.component.ts" />
+    <TypeScriptCompile Include="App\search-result\search-result-list\person-search-list\person-search-list.component.ts" />
+    <TypeScriptCompile Include="App\core\core.module.ts" />
+    <TypeScriptCompile Include="App\core\title\title.component.ts" />
+    <TypeScriptCompile Include="App\core\title\user-information\user-information.component.ts" />
+    <TypeScriptCompile Include="App\dashboard\dashboard.module.ts" />
+    <TypeScriptCompile Include="App\index\index.module.ts" />
+    <TypeScriptCompile Include="App\search-filter\search-filter.module.ts" />
+    <TypeScriptCompile Include="App\search-filter\filter\filtergroup.pipe.ts" />
+    <TypeScriptCompile Include="App\shared\shared-pipes\projectname.pipe.ts" />
+    <TypeScriptCompile Include="App\shared\shared-pipes\registerfullname.pipe.ts" />
+    <TypeScriptCompile Include="App\shared\shared-pipes\registeridentifiername.ts" />
+    <TypeScriptCompile Include="App\search-filter\saved-search\saved-search.pipe.ts" />
+    <TypeScriptCompile Include="App\shared\shared-pipes\simpledate.pipe.ts" />
+    <TypeScriptCompile Include="App\shared\shared-pipes\tag.pipe.ts" />
+    <TypeScriptCompile Include="App\surveillance\teamsurveillance.pipe.ts" />
+    <TypeScriptCompile Include="App\dashboard\apikey-tile\apikey-tile.component.ts" />
+    <TypeScriptCompile Include="App\dashboard\comments-tile\comments-tile.component.ts" />
+    <TypeScriptCompile Include="App\dashboard\dashboard.component.ts" />
+    <TypeScriptCompile Include="App\shared\error\error-message.component.ts" />
+    <TypeScriptCompile Include="App\helpers\datehelper.ts" />
+    <TypeScriptCompile Include="App\helpers\flrhelper.ts" />
+    <TypeScriptCompile Include="App\helpers\formvalidators.ts" />
+    <TypeScriptCompile Include="App\helpers\pregHelper.ts" />
+    <TypeScriptCompile Include="App\helpers\searchParser.ts" />
+    <TypeScriptCompile Include="App\surveillance\surveillance.module.ts" />
+    <TypeScriptCompile Include="App\user\login\login.component.ts" />
+    <TypeScriptCompile Include="App\shared\comments\comments.component.ts" />
+    <TypeScriptCompile Include="App\shared\comments\create-comment.component.ts" />
+    <TypeScriptCompile Include="App\dashboard\latest-checks-tiles\latest-checks-tile.component.ts" />
+    <TypeScriptCompile Include="App\dashboard\links-tile\links-tile.component.ts" />
+    <TypeScriptCompile Include="App\dashboard\saved-search-tile\saved-search-tile.component.ts" />
+    <TypeScriptCompile Include="App\dashboard\tag-list-tile\tag-list-tile.component.ts" />
+    <TypeScriptCompile Include="App\dashboard\tag-tile\tag-tile.component.ts" />
+    <TypeScriptCompile Include="App\shared\detailedWindow\json-detail\json-detail.component.ts" />
+    <TypeScriptCompile Include="App\search-filter\filter\filtertypes\children\children-filter.component.ts" />
+    <TypeScriptCompile Include="App\search-filter\filter\filtertypes\parent\parent-filter.component.ts" />
+    <TypeScriptCompile Include="App\search-filter\filter\filtertypes\tagfilter\tagfilter.component.ts" />
+    <TypeScriptCompile Include="App\search-result\tabs\person\difi\person-difi.component.ts" />
+    <TypeScriptCompile Include="App\search-result\active-filters\active-filters.component.ts" />
+    <TypeScriptCompile Include="App\search-filter\saved-search\saved-search.component.ts" />
+    <TypeScriptCompile Include="App\routing\authguard.ts" />
+    <TypeScriptCompile Include="App\models\JsonModels.ts" />
+    <TypeScriptCompile Include="App\models\UtilityModels.ts" />
+    <TypeScriptCompile Include="App\index\index.component.ts" />
+    <TypeScriptCompile Include="App\helpers\registerhelper.ts" />
+    <TypeScriptCompile Include="App\shared\detailedWindow\family\familymodels.ts" />
+    <TypeScriptCompile Include="App\shared\detailedWindow\simple-json-detail\simple-json-detail.component.ts" />
+    <TypeScriptCompile Include="App\shared\detailedWindow\simple-json-diff\simple-json-diff.component.ts" />
+    <TypeScriptCompile Include="App\search-filter\filter\filtertypes\agebox\agebox.component.ts" />
+    <TypeScriptCompile Include="App\search-filter\filter\filter-container.component.ts" />
+    <TypeScriptCompile Include="App\search-filter\filter\filter-group.component.ts" />
+    <TypeScriptCompile Include="App\search-result\tabs\base-hit-tab.ts" />
+    <TypeScriptCompile Include="App\search-result\tabs\information-container\information-container.component.ts" />
+    <TypeScriptCompile Include="App\search-result\tabs\person\notifications\person-notifications.component.ts" />
+    <TypeScriptCompile Include="App\shared\detailedWindow\family\family.component.ts" />
+    <TypeScriptCompile Include="App\search-result\tabs\person\personal\person-personal.component.ts" />
+    <TypeScriptCompile Include="App\search-result\tabs\person\professional\person-professional.component.ts" />
+    <TypeScriptCompile Include="App\surveillance\surveillance-list\surveillance-list.component.ts" />
+    <TypeScriptCompile Include="App\search-result\search-result-details\person-search-detail\person-search-detail.component.ts" />
+    <TypeScriptCompile Include="App\search-result\search-result-list\search-list.component.ts" />
+    <TypeScriptCompile Include="App\dashboard\surveillance-status-tile\surveillance-status-tile.component.ts" />
+    <TypeScriptCompile Include="App\resources\api-routes.ts" />
+    <TypeScriptCompile Include="App\resources\app-settings.ts" />
+    <Compile Include="Controllers\SearchController.cs" />
+    <Compile Include="Controllers\SurveillanceController.cs" />
+    <Compile Include="Controllers\TagController.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Config\Mock\Filter\GrunndataFilterItem.cs" />
+    <Compile Include="Config\Mock\Filter\GrunndataPersonFilterConst.cs" />
+    <Compile Include="Models\BusinessDetails.cs" />
+    <Compile Include="Models\DetailsProvider.cs" />
+    <Compile Include="Models\PersonDetails.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="User\HardcodedTeams.cs" />
+    <Compile Include="User\UserManager.cs" />
+    <Compile Include="Config\Mock\Filter\GrunndataPersonFilter.cs" />
+    <Compile Include="StartConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <TypeScriptCompile Include="App\core\services\default-request-options.ts" />
+    <TypeScriptCompile Include="App\core\services\search-manager.service.ts" />
+    <TypeScriptCompile Include="App\shared\shared.module.ts" />
+    <TypeScriptCompile Include="App\static-data-collection\admin\admin-static-data.component.ts" />
+    <TypeScriptCompile Include="App\static-data-collection\admin\admin-static-table.component.ts" />
+    <TypeScriptCompile Include="App\static-data-collection\business-data\business-data.component.ts" />
+    <TypeScriptCompile Include="App\static-data-collection\contact-information\contact-information.component.ts" />
+    <TypeScriptCompile Include="App\static-data-collection\person-data\person-data.component.ts" />
+    <TypeScriptCompile Include="App\static-data-collection\shared\static-data-shared.component.ts" />
+    <TypeScriptCompile Include="App\static-data-collection\static-data-collection.module.ts" />
+    <TypeScriptCompile Include="App\static-data-collection\static-data-collection.routing.ts" />
+    <TypeScriptCompile Include="App\statistics\base-statistics-tab.ts" />
+    <TypeScriptCompile Include="App\statistics\compare\statistics-compare.component.ts" />
+    <TypeScriptCompile Include="App\statistics\correlation\statistics-correlation.component.ts" />
+    <TypeScriptCompile Include="App\statistics\detailed\statistics-detailed.component.ts" />
+    <TypeScriptCompile Include="App\statistics\groups\statistics-group.component.ts" />
+    <TypeScriptCompile Include="App\statistics\overview\statistics-overview.component.ts" />
+    <TypeScriptCompile Include="App\statistics\shared\statistics-shared.component.ts" />
+    <TypeScriptCompile Include="App\statistics\statistics-index.component.ts" />
+    <TypeScriptCompile Include="App\statistics\statistics.module.ts" />
+    <TypeScriptCompile Include="App\user\change-password\change-password.component.ts" />
+    <TypeScriptCompile Include="App\user\create-user\create-user-success.component.ts" />
+    <TypeScriptCompile Include="App\user\create-user\create-user.component.ts" />
+    <TypeScriptCompile Include="App\user\forgotten-password\forgotten-password.component.ts" />
+    <TypeScriptCompile Include="App\user\invalid-register-user\invalid-register-user.component.ts" />
+    <TypeScriptCompile Include="App\user\register-user\register-user.component.ts" />
+    <TypeScriptCompile Include="App\user\terms\terms.component.ts" />
+    <TypeScriptCompile Include="App\user\update-user\update-user.component.ts" />
+    <TypeScriptCompile Include="App\user\user-details\user-details.component.ts" />
+    <TypeScriptCompile Include="App\surveillance\surveillance-overview\surveillance-overview.component.ts" />
+    <Content Include="App\surveillance\surveillance-overview\surveillance-overview.component.html" />
+    <TypeScriptCompile Include="App\core\services\user-manager.service.ts" />
+    <TypeScriptCompile Include="App\user\user.module.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Scripts\app.js.map" />
+    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Scripts\Reflect.js.map" />
+    <Content Include="Scripts\system-polyfills.js.map" />
+    <Content Include="bower.json" />
+    <Content Include="bower_components\jsondiffpatch\public\build\bower.json" />
+    <Content Include="bower_components\jsondiffpatch\public\build\jsondiffpatch-formatters.min.map" />
+    <Content Include="bower_components\jsondiffpatch\public\build\jsondiffpatch-full.min.map" />
+    <Content Include="bower_components\jsondiffpatch\public\build\jsondiffpatch.min.map" />
+    <TypeScriptCompile Include="App\search-result\tabs\person\overview\person-overview.component.ts" />
+    <Content Include="App\search-filter\filter\filter-group.component.css" />
+    <Content Include="App\search-filter\filter\filtertypes\parent\parent-filter.component.html" />
+    <Content Include="Content\pregmodel.json" />
+    <Content Include="Content\pregmodelV5.json" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="App\app.component.ts" />
+    <TypeScriptCompile Include="App\app.module.ts" />
+    <TypeScriptCompile Include="App\app.routes.ts" />
+    <TypeScriptCompile Include="App\main.ts" />
+    <TypeScriptCompile Include="App\models\DataModels.ts" />
+    <TypeScriptCompile Include="App\search-result\search-result-details\person-detail\person-detail.component.ts" />
+    <TypeScriptCompile Include="App\search-filter\search-box\search-box.component.ts" />
+    <TypeScriptCompile Include="App\core\services\api.service.ts" />
+    <TypeScriptCompile Include="App\core\services\data-manager.service.ts" />
+    <TypeScriptCompile Include="App\core\services\filter-manager.service.ts" />
+    <TypeScriptCompile Include="App\core\services\mediator.service.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Public\Common\Common.csproj">
+      <Project>{2FB3AFA3-9DDE-4E92-B2B7-93EA5B557AA1}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Public\TestdataApp\Common\TestdataApp.Common.csproj">
+      <Project>{db3cf67e-654d-47ad-8377-4f89277ab140}</Project>
+      <Name>TestdataApp.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Microsoft.TypeScript.MSBuild.2.1.4\build\Microsoft.TypeScript.MSBuild.targets" Condition="Exists('..\packages\Microsoft.TypeScript.MSBuild.2.1.4\build\Microsoft.TypeScript.MSBuild.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>1998</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:2008/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\..\..\packages\Microsoft.Net.Compilers.2.3.1\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\packages\Microsoft.Net.Compilers.2.3.1\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.2\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.2\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\..\..\packages\Microsoft.TypeScript.MSBuild.2.4.1\build\Microsoft.TypeScript.MSBuild.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\packages\Microsoft.TypeScript.MSBuild.2.4.1\build\Microsoft.TypeScript.MSBuild.props'))" />
+    <Error Condition="!Exists('..\..\..\packages\Microsoft.TypeScript.MSBuild.2.4.1\build\Microsoft.TypeScript.MSBuild.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\packages\Microsoft.TypeScript.MSBuild.2.4.1\build\Microsoft.TypeScript.MSBuild.targets'))" />
+  </Target>
+  <Import Project="..\..\..\packages\Microsoft.TypeScript.MSBuild.2.4.1\build\Microsoft.TypeScript.MSBuild.targets" Condition="Exists('..\..\..\packages\Microsoft.TypeScript.MSBuild.2.4.1\build\Microsoft.TypeScript.MSBuild.targets')" />
+  <Import Project="..\..\..\packages\Microsoft.Web.WebJobs.Publish.1.0.11\tools\webjobs.targets" Condition="Exists('..\..\..\packages\Microsoft.Web.WebJobs.Publish.1.0.11\tools\webjobs.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

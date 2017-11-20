@@ -1,0 +1,47 @@
+﻿<div class="ui" id="filterContainer">
+    <div class="ui accordion filteraccordion extraluft">
+        <div class="title accordiontitle centered">
+            Lagrede søk
+            <i class="dropdown right icon" style="float: right"></i>
+        </div>
+        <div class="ui content">
+            <saved-search></saved-search>
+        </div>
+    </div>
+
+    <div *ngFor="let beloning of belongings">
+        <div *ngIf="belongingHasFilters(beloning)">
+            <div class="ui accordion filteraccordion extraluft">
+                <div class="title accordiontitle centered">
+                    {{ beloning | registerfilterfullname}}
+                    <i class="dropdown right icon" style="float: right"></i>
+                </div>
+                <div class="ui content">
+                    <div *ngIf="this.filters">
+
+                        <div *ngFor="let group of this.filters | filtergroup:beloning">
+
+                            <filter-group [filter]="group"></filter-group>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngFor="let group of this.filters | filtergroup:fb">
+        <div [ngSwitch]="group.type">
+            <div *ngSwitchCase="'tag'" id="tag">
+                <div class="header extraluft">
+                    <b>Tags</b>
+                </div>
+                <tagfilter [group]="group"></tagfilter>
+            </div>
+            <div *ngSwitchDefault>
+                <filter-group [filter]="group"></filter-group>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+   

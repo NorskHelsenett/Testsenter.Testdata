@@ -1,0 +1,57 @@
+﻿#search-result-header {
+    margin-top: 40px !important;
+}
+
+#description{
+    padding: 20px 1em 10px 1em
+}
+
+#id-column {
+    width: 10% !important;
+    padding-left:  40px;
+}
+
+#name-column {
+    width: 20% !important;
+    padding-left: 40px;
+
+}
+
+#child-column {
+    width: 10% !important;
+
+}
+
+#register-column {
+    width: 11% !important;
+    
+}
+
+
+#godkjenninger-column {
+    width: 27% !important;
+
+}
+
+#tag-column {
+    width: 13% !important;
+
+}
+
+#star-column {
+    width: 9% !important;
+    padding-right: 0px;
+
+}
+
+#pageContainer {
+    display: flex;
+    -ms-align-items: center;
+    -o-align-items: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -o-justify-content: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    padding: 10px 0;
+}

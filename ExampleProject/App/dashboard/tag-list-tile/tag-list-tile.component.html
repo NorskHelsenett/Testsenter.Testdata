@@ -1,0 +1,32 @@
+﻿
+<p id="taglisttitle"><i class="tags icon" id="dashIcon"></i>ALLE TAGS</p>
+<div id="taglistfilterrow" class="ui grid">
+    <div class="ui input taglistfilter">
+        <input [(ngModel)]="searchWord" type="text" placeholder="Søk i tags">
+    </div>
+    <div id="dropdownContainer" >
+        <select [(ngModel)]="projectValue" class="ui fluid dropdown" id="projectDropdown">
+            <option value="">Område</option>
+            <option value="-1">Alle</option>
+            <option *ngFor="let project of projectNames; let i = index" [value]="i">{{ project }}</option>
+        </select>
+    </div>
+</div>
+<div id="tableContainer">
+    <table class="ui sortable selectable fixed single line celled table" id="taglist">
+        <thead>
+            <tr>
+                <th [ngClass]="tagClass" (click)="sortOn(0)">Tag</th>
+                <th [ngClass]="byClass" (click)="sortOn(1)">Opprettet av</th>
+                <th [ngClass]="projectClass" (click)="sortOn(2)">Område</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let tag of taglist | orderBy: (sortDir ? '-' : '') + sortArray[sortBy] | filterBy: ['teamProjectInt']:(projectValue === '-1' ? '' : projectValue)| filterBy: ['name','registeredBy'] : searchWord" (click)="search(tag)" class="pointer">
+                <td [title]="tag.name">{{ tag.name}}</td>
+                <td>{{tag.registeredBy}}</td>
+                <td>{{tag.teamProjectInt | projectname}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

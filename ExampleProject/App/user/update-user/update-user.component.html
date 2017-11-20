@@ -1,0 +1,19 @@
+﻿<div id="formContainer">
+    <div class="ui container segment" style="padding: 0;">
+        <div class="hodorPrimary header">
+            <span *ngIf="!newUser">Min bruker</span>
+        </div>
+        <div class="ui {{isLoading}} dimmer">
+            <div class="ui text loader">Loading</div>
+        </div>
+        <form class="ui form" id="regForm">
+            <section>
+                <register-user (onSuccess)="onRegisterSuccess($event)" (onCancel)="onRegisterCancel()" [showRegisterContent]="showRegisterContent" [isNewUser]="false"></register-user>
+            </section>
+        </form>
+
+        <user-details [isNewUser]="false" (onCancel)="onUserDetailsCancel()" (onSuccess)="onUserDetailsSuccess($event)" [errorMessage]="errorMessage" [disabled]="false" [loading]="userdetailloading"></user-details>
+        
+    </div>
+
+</div>

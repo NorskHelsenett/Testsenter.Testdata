@@ -1,0 +1,35 @@
+﻿.surveillancelabel{
+    cursor:pointer;
+}
+
+.icongreen {
+    color: #70A8A3
+}
+
+.iconred {
+    color: #FF6A5C
+}
+
+.ui.title.active i.dropdown{
+    transform: rotate(90deg) !important;
+}
+
+.ui.title i.dropdown {
+    transform: rotate(180deg) !important;
+}
+
+.littleluft {
+    margin-bottom: 3px;
+}
+
+#content-table{
+    display: flex;
+}
+
+#dropdown{
+    align-self: flex-end;
+}
+
+#surv_column{
+    flex: 1;
+}

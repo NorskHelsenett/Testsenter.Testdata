@@ -1,0 +1,19 @@
+﻿
+<div class="ui divider" id="ui_divider"></div>
+<span *ngIf="changedSurveillances > 0" span style="font-size: 12pt" id="red_circle"><i class="remove circle outline icon big hodorRedColor"></i> {{changedSurveillances}} endrede elementer</span>
+<span *ngIf="unchangedSurveillances > 0" span style="font-size: 12pt"><i class="check circle outline icon big hodorGreenColor"></i> {{unchangedSurveillances}}  uendrede elementer</span>
+
+<div class="title ui centered center aligned grid" id="description">
+    <span class="column" id="id-column">ID</span>
+    <span class="column" id="name-column">Navn</span>
+    <span class="center aligned column" id="child-column"> Antall barn</span>
+    <span class="center aligned column" id="register-column"> Register</span>
+    <span class="center aligned column" id="godkjenninger-column">HPR-kategori</span>
+    <span class="center aligned column" id="tag-column">Tags</span>
+    <span class="center aligned column" id="star-column">Varslinger</span>
+
+</div>
+
+<ng-container *ngFor="let person of this.persons">
+    <person-search-detail [person]="person"></person-search-detail>
+</ng-container>

@@ -1,0 +1,14 @@
+﻿.boldtext {
+    font-weight: bold;
+    padding: 0px !important;
+}
+
+input[type=text]:-ms-input-placeholder {
+    color: #C7C7CD;
+}
+
+.ui.input input{
+    font-size: 13px;
+    padding: 0.5em;
+    text-align: center;
+}

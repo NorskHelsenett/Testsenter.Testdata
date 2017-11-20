@@ -1,0 +1,47 @@
+﻿<div class="ui stackable two column grid no-right-margin" >
+    <div class="row">
+        <div class="column greenbg" id="left-column">
+            <div class="grid">
+                <div class="row left-row">
+                    <search-box></search-box>
+                    <div class="left floated left aligned column" id="reset-container">
+                        <img id="resetimg" (click)="searchWithEmptyFilters()" [class.disabled]="searchInProgress || activeFilters === 0" src="../Content/reset_filter.png" />
+                        <a id="resetFilter" (click)="searchWithEmptyFilters()" [class.disabled]="searchInProgress || activeFilters === 0">Nullstill filter <span *ngIf="activeFilters > 0" class="meta">({{activeFilters}})</span></a>
+                    </div>
+                    <filter-container></filter-container>
+                </div>
+
+
+            </div>
+        </div>
+        <div [ngSwitch]="currentView" class="twelve wide column centered" id="context">
+            
+            <div class="content text loader">
+
+
+                <div *ngSwitchCase="ChildViews.Search">
+                    <div class="ui inverted dimmer" [class.active]="searchInProgress">
+                        <div class="ui text loader" id="loader">Loading</div>
+                    </div>
+                    <div class="content text loader">
+                        <search-list id="search-result"></search-list>
+                    </div>
+                </div>
+
+                <div *ngSwitchCase="ChildViews.Surveillance">
+                    <div class="ui inverted dimmer" [class.active]="searchInProgress">
+                        <div class="ui text loader" id="loader">Loading</div>
+                    </div>
+                    <div class="content text loader">
+                        <surveillance-overview></surveillance-overview>
+                    </div>
+                </div>
+
+                <div *ngSwitchCase="ChildViews.Dashboard">
+                    <dashboard></dashboard>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

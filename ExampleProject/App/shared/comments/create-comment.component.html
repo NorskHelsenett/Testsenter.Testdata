@@ -1,0 +1,15 @@
+﻿
+<button *ngIf="!showBox" (click)="showBox = true" class="ui basic button">
+    <i class="plus icon"></i>
+    Legg til
+</button>
+<div *ngIf="showBox">
+    <div class="ui divider"></div>
+    <div class="ui form">
+        <div class="field">
+            <textarea [(ngModel)]="content"></textarea><br/>
+        </div>
+        <div [class.disabled]="!content || content.length === 0" [class.loading]="saving" class="ui button small hodorPrimary" id="save" (click)="save()">Lagre</div>
+        <div class="ui button small hodorSecondary" [class.disabled]="saving" id="cancel" (click)="showBox = false">Avbryt</div>
+    </div>
+</div>

@@ -1,0 +1,51 @@
+﻿
+<div class="content">
+
+    <div class="description">
+        <div class="description" style="margin-bottom: 7px">
+
+            <label>
+                <input [(ngModel)]="hasChild.selected" (change)="onSelect(true)"
+                        [id]="hasChild.uniquevalue" type="checkbox" [checked]="hasChild.selected">
+                {{ hasChild.name}}
+            </label>
+
+            <div [hidden]="!hasChild.selected" style="margin-left: 20px">
+
+                <div style="margin-top: 7px; margin-bottom: 7px">
+
+                    <label>
+                        <input (change)="onCustodySelect(true)" [(ngModel)] ="hasCustodySelected"
+                                id="hasCustody" type="checkbox" name="hasCustody" [checked]="hasCustodySelected">
+                        Har foreldreansvar
+                    </label><br/>
+                </div>
+
+                <div style="margin-bottom: 7px">
+                    <label>
+                        <input (change)="onCustodySelect(false)" [(ngModel)]="hasNotCustodySelected"
+                               id="hasNotCustody" type="checkbox" [checked]="hasNotCustodySelected" name="hasNotCustody">
+                        Har ikke foreldreansvar
+                    </label><br />
+                </div>
+
+                <div style="margin-bottom: 7px">
+                    <label>
+                        Aldersgruppe:
+                        <select class="ui dropdown" id="agedropdown">
+                            <option *ngFor="let age of agevalues; let i = index" [value]="i">{{age}}</option>
+                        </select>
+                    </label>
+                </div>
+        </div>
+    </div>
+        <div class="description">
+            <label>
+                <input [(ngModel)]="hasNotChild.selected" (change)="onSelect(false)"
+                        [id]="hasNotChild.uniquevalue" type="checkbox"  [checked]="hasNotChild.selected" name="hasNotChild.name">
+                {{ hasNotChild.name}}
+            </label>
+        </div>
+    </div>
+</div>
+

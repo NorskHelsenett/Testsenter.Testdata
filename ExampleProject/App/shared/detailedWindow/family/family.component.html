@@ -1,0 +1,54 @@
+﻿<div class="ui segment">
+    <div class="ui top right attached label" id="closebox"><i class="grey large remove link icon" id="close" (click)="close($event)"></i></div>
+    <div class="ui top left attached label personlink" (click)="searchForFamily()" >Søk opp familie</div>
+
+    <div id="family-container" class="detailedContent">
+        <h4 class="ui horizontal divider header topdivider">
+            Foreldre
+        </h4>
+        <section class="familySection">
+            <div *ngIf="family.numberOfParents == 0">Ingen foreldre</div>
+            <div *ngIf="family.father" class="familyBox" >
+                <p>{{family.father.name}}</p>
+                <p>{{family.father.dateAndAgeString}}</p>
+                <p>{{family.father.custody}}</p>
+                <p>{{family.father.nin}}</p>
+                <div class="personlink" (click)="searchForMember(family.father)"> Søk opp person</div>
+
+            </div>
+            <div *ngIf="family.mother" class="familyBox">
+                <p>{{family.mother.name}}</p>
+                <p>{{family.mother.dateAndAgeString}}</p>
+                <p>{{family.mother.custody}}</p>
+                <p>{{family.mother.nin}}</p>
+                <div class="personlink" (click)="searchForMember(family.mother)"> Søk opp person</div>
+            </div>
+        </section>
+        <h4 class="ui horizontal divider header">
+            Person
+        </h4>
+        <section class="familySection">
+            <div> 
+                <p>{{family.person.name}}</p>
+                <p>{{family.person.dateAndAgeString}}</p>
+                <p>{{family.person.custody}}</p>
+                <p>{{family.person.nin}}</p>
+            </div>
+        </section>
+        <h4 class="ui horizontal divider header">
+            Barn
+        </h4>
+        <section class="familySection">
+            <div *ngIf="!family.children || family.children.length == 0">Ingen barn</div>
+            <ng-container *ngFor="let child of family.children" >
+                <div class="familyBox">
+                    <p>{{child.name}}</p>
+                    <p>{{child.dateAndAgeString}}</p>
+                    <p>{{child.custody}}</p>
+                    <p>{{child.nin}}</p>
+                    <div class="personlink" (click)="searchForMember(child)"> Søk opp person</div>
+                </div>
+            </ng-container>
+        </section>
+    </div>
+</div>

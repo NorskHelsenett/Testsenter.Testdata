@@ -1,0 +1,49 @@
+﻿<div class="ui segment">
+
+    <div class="ui accordion" id="{{business.commonIdentifier}}-accordion">
+        <div class="ui title" (click)="getBusinessDetail($event)">
+            <div class="ui centered center aligned seven column grid">
+                <div class="column left aligned" id="id-column"><div class="ui tiny inline loader" [class.active]="loading"></div>{{ getId()}}</div>
+                <div class="column" id="name-column"><b>{{business.name}}</b></div>
+                <div class="center aligned column" id="child-column"></div>
+                <div class="center aligned column" id="register-column">
+                    <span class="ui basic label tags registerLabel" *ngIf="business.isInAr">AR</span>
+                    <span class="ui basic label tags registerLabel" *ngIf="business.isInBedReg">BREG</span>
+                    <span class="ui basic label tags registerLabel" *ngIf="business.isInHtk">HTK</span>
+                    <span class="ui basic label tags registerLabel" *ngIf="business.isInResh">RESH</span>
+                    <span class="ui basic label tags registerLabel" *ngIf="business.isInFlr">FLR</span>
+                    <span class="ui basic label tags registerLabel" *ngIf="business.isInOfr">OFR</span>
+
+                </div>
+                <div class="center aligned column" id="godkjenninger-column"> {{type | async | shorten: 40:'(..)'}} </div>
+
+                <div class="center aligned column" id="tag-column">
+
+                    <div class="ui grid centered" id="tagcoloumn">
+
+                        <div *ngFor="let tag of this.business.tags | slice:0:2" class="ui basic label tags">
+                            {{getTagName(tag) | shorten: 10:'...'}}
+                        </div>
+                        <div *ngIf="this.business.tags != undefined && this.business.tags.length > 2" class="ui basic label tags">
+                            ...
+                        </div>
+                    </div>
+
+                </div>
+                <div class="center aligned column" id="star-column" ></div>
+                
+                    <div class="column right aligned" id="dropdown">
+                    <i class="dropdown right icon"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="content" id="{{business.commonIdentifier}}">
+            <div *ngIf="this.business.detail && this.showDetails">
+                <business-detail (newTag)="addTag($event)" (removeTag)="removeTag($event)" [business]="this.business"></business-detail>
+            </div>
+        </div>
+
+        <div *ngIf="errorMessage" class="ui message error">{{errorMessage}}</div>
+    </div>
+</div>

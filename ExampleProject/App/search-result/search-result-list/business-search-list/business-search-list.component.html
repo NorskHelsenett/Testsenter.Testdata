@@ -1,0 +1,14 @@
+﻿<div class="title ui centered center aligned grid" id="description">
+    <span class="column" id="id-column">ID</span>
+    <span class="column" id="name-column">Navn</span>
+    <span class="center aligned column" id="child-column"></span>
+    <span class="center aligned column" id="register-column"> Register</span>
+    <span class="center aligned column" id="godkjenninger-column">Virksomhetstype</span>
+    <span class="center aligned column" id="tag-column">Tags</span>
+    <span class="center aligned column" id="star-column"></span>
+
+</div>
+
+<ng-container *ngFor="let business of this.businesses">
+    <business-search-detail [business]="business"></business-search-detail>
+</ng-container>

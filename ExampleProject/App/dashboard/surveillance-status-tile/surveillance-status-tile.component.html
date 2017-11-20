@@ -1,0 +1,30 @@
+﻿<div class="ui center aligned segment" id="statuscontainer"  (click)="showSurveillences()">
+    <div class="ui {{loading}} dimmer">
+        <div class="ui text loader">Loading</div>
+    </div>
+    <div class="content">
+        <i class="huge alarm outline icon" id="survIcon"></i>
+        <div class="header"><b>VARSLINGER</b>
+        </div>
+    </div>
+    <br/>
+    <!--<div class="content">-->
+    <div>
+        <div class="ui grid">
+            <div class="three column row">
+                <div class="right aligned column">Mine</div>
+                <div class="column"><i class="remove circle outline icon big hodorred"></i><div class="middleColumn">{{ status.personalUnsynced }}</div></div>
+                <div class="left aligned column"><i class="check circle outline icon big hodorgreen"></i>{{ status.personalSynced }}</div>
+            </div>
+            <div class="three column row">
+                <div class="right aligned column ellipses">Prosjektes</div>
+                <div class="column"><i class="remove circle outline icon big hodorred"></i><div class="middleColumn">{{ status.projectUnsynced }}</div></div>
+                <div class="left aligned column"><i class="check circle outline icon big hodorgreen"></i>{{ status.projectSynced }}</div>
+            </div>
+        </div>
+
+    </div>
+
+    <!--</div>-->
+</div>
+

@@ -1,0 +1,47 @@
+﻿<div class="ui vertical aligned segment" id="stats-menu">
+
+     <div class="ui one column grid no-right-margin">
+         <div class="ui two column row" id="menurow">
+             <div class="column">
+                 <div class="ui basic inverted secondary pointing menu" id="tabmenu">
+                     <a class="active item" data-tab="first">Oversikt</a>
+                     <a class="item" data-tab="second">Korrelasjon</a>
+                     <a class="item" data-tab="four">Diverse</a>
+                 </div>
+             </div>
+             <div class="column right aligned">
+
+                 <select class="ui dropdown" [(ngModel)]="selectedBlob">
+                     <option [selected]="true" disabled>Velg fil</option>
+                     <option *ngFor="let blob of blobs" [value]="blob.name">{{blob.name}}</option>
+                 </select>
+                 <button type="button" class="ui blue button"
+                         (click)="getFile()" [disabled]="!selectedBlob" [class.loading]="this.loading">
+                     <i class="download icon"></i>Vis statistikk
+                 </button>
+                 <label class="fileLabel ui positive button" [class.disabled]="uploader.isUploading">
+                     <i class="upload icon" [class.loading]="uploader.isUploading"></i>
+                     Last opp fil
+                     <input type="file" ng2FileSelect (change)="setFile($event)" [uploader]="uploader" />
+                 </label>
+             </div>
+
+
+
+         </div>
+         <div class="ui basic centered segment" [class.disabled]="stats==undefined" [class.loading]="loading" id="statsegment">
+             
+             <div class="ui active tab segment" style="background-color:#F5F5F5; border:none;" data-tab="first">
+                 <statistics-overview [stats]="stats"></statistics-overview>
+             </div>
+             <div class="ui tab segment" id="correlations" data-tab="second">
+                 <statistics-correlation [stats]="stats"></statistics-correlation>
+             </div>
+             <div class="ui tab segment" data-tab="four">
+                 <statistics-detailed [stats]="stats"></statistics-detailed>
+             </div>
+
+         </div>
+        
+    </div>
+</div>

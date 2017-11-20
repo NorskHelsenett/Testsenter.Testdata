@@ -1,0 +1,10 @@
+﻿    <div class="ui segment" style="margin: 5em 2em">
+        <h1>Personer</h1>
+        <a id="pdownload" download="personer.csv" [href]="plink" target="_blank">Last ned personer</a>
+        <admin-static-table [isPerson]="true" [rows]="prows"></admin-static-table>
+        <h1>Virksomheter </h1>
+        <a id="bdownload" download="virksomheter.csv" [href]="blink" target="_blank">Last ned virksomheter</a>
+        <admin-static-table [isPerson]="false" [rows]="brows"></admin-static-table>
+
+
+    </div>

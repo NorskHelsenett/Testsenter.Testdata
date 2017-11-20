@@ -1,0 +1,24 @@
+﻿<div class="ui compact segment inverted" id="userinfo">
+    <div class="ui {{loading}} dimmer">
+        <div class="ui text loader">Loading</div>
+    </div>
+    <div class="content text loader" id="content-text-loader">
+        <div class="column" id="left-column">
+            <a (click)="navigateToUser()" id="userName" class="upperCase"><b>{{ user.name}}</b></a>
+            <p>
+                {{ user.projectValue | projectname}}<br />
+
+            </p>
+        </div>
+        <div class="column" id="right-column">
+            <i (click)="navigateToUser()" class="big circular user link icon hodorGreyColor dark hodorGrey" id="user-circle"></i>
+            <br />
+            <a id="logoutMe" (click)="logOut()">
+                Logg ut
+                <i class="sign out icon hodorGreyColor dark"></i>
+            </a>
+
+        </div>
+
+    </div>
+</div>

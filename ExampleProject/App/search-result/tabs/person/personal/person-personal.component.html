@@ -1,0 +1,19 @@
+﻿<div class="ui two column grid">
+    <div class="column">
+        <information-container [information]="information" ></information-container>
+        <div class="buttons-container">
+            <div class="buttons bottom attached">
+                <button class="ui basic button" (click)="showPregDetails(childviews.Json)">Se ytterligere detaljer</button>
+                <button class="ui basic button" (click)="showFamily()" [class.loading]="loadingFamily">Se familie</button>
+            </div>
+        </div>
+    </div>
+    <div class="column" *ngIf="flrInformation.details.length > 0">
+        <information-container [information]="flrInformation" [title]="'Tilknyttet fastlegeavtale'"></information-container>
+        <div class="buttons-container">
+            <div class="buttons bottom attached">
+                <button class="ui basic button" (click)="showFlrDetails(childviews.Json)">Se ytterligere detaljer</button>
+            </div>
+        </div>
+    </div>
+</div>

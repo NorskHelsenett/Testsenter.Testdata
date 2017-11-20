@@ -1,0 +1,26 @@
+﻿<div class="ui center aligned padded segment hodorBackground dashboardGray" id="statuscontainer">
+    <div class="ui dimmer" [class.active]="loading">
+        <div class="ui loader"></div>
+    </div>
+    <div class="content">
+        <i class="huge history outline icon" id="historyIcon"></i>
+        <div class="header">
+            <b>SENESTE SYNK</b>
+        </div>
+    </div>
+    <br/>
+    <div class="ui two column grid">
+        <ng-container class="nomargin" *ngFor="let sync of syncs | async">
+
+            <div class="six wide right aligned column synctimes">
+                {{sync.item1 | uppercase}}:
+            </div>
+            <div class="ten wide left aligned column synctimes">
+                {{sync.item2|simpledate}}
+            </div>
+        </ng-container>
+    </div>
+</div>
+
+
+

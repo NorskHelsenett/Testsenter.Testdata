@@ -1,0 +1,62 @@
+﻿.left-row {
+    margin-bottom: 20px;
+    margin-top: 15px;
+}
+
+
+#person-search-header {
+     background-color: rgb(204, 223, 203);
+    box-shadow: 0 2px 1px #888888;
+}
+
+.hodorgreen {
+    color: #70A8A3;
+    opacity: 1 !important;
+}
+
+.greenbg {
+    background-color: rgb(231, 242, 230);
+    margin-top: 30px !important;
+}
+
+#loader {
+    top: 200px;
+}
+
+#resetFilter {
+    color: #595959;
+    font-style: normal;
+    padding-left: 6px;
+    margin-top: 5px;
+    cursor: pointer;
+
+}
+
+#resetFilter.disabled {
+    color: #999999;
+    cursor: default;
+    pointer-events: none;
+    font-style: normal;
+}
+
+#reset-container{
+    display: flex;
+    align-content: center;
+    padding-left: 20px;
+    padding-bottom: 20px;
+
+}
+
+#resetimg.disabled{
+   pointer-events: none;
+   cursor: default;
+}
+
+#resetimg{
+    cursor: pointer;
+}
+
+
+#left-column {
+    width: 15%;
+}

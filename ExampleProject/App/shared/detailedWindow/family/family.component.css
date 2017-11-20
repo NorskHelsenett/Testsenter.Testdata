@@ -1,0 +1,52 @@
+﻿#family-container {
+    display: flex;
+    flex-flow: column;
+}
+
+
+.topdivider {
+    margin-top: calc(2rem - 0.14285em) !important;
+}
+
+.familySection {
+    margin: auto;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center
+}
+
+    .familySection div {
+        border: 1px solid #ccc;
+        padding: 5px 10px;
+        text-decoration: none;
+        color: #666;
+        margin: 5px;
+        border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        transition: all 0.5s;
+        -webkit-transition: all 0.5s;
+        -moz-transition: all 0.5s;
+        line-height: 1;
+    }
+
+    .familySection p {
+        margin: 2px;
+        text-align: center;
+    }
+
+.familySection p:nth-child(2) {
+    color: #778899;
+}
+
+.familySection p:first-child {
+    font-weight: bold;
+    
+}
+
+.personlink {
+    cursor: pointer;
+    text-decoration: underline;
+    color: #666;
+    text-align: center;
+}

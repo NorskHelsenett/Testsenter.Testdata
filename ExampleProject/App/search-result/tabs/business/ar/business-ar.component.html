@@ -1,0 +1,14 @@
+﻿<div class="ui two column grid">
+
+    <div class="column">
+        <information-container *ngIf="this.information.details.length > 0" [information] = "information"> </information-container>
+        <div class="buttons-container">
+            <div class="buttons bottom attached">
+                <button class="ui basic button" (click)="showArDetails()">Se ytterligere detaljer</button>
+            </div>
+        </div>
+    </div>
+    <div class="column">
+        <information-container *ngIf="this.compartInformation.details.length > 0" [information]="compartInformation" [title]="'Kommunikasjonsparter'"> </information-container>
+    </div>
+</div>

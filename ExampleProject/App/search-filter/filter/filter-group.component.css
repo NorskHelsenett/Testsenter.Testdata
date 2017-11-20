@@ -1,0 +1,34 @@
+﻿.filterluft {
+    padding-bottom: 7px;
+}
+
+.item:first-child {
+    padding-top: 25px;
+}
+
+.extraluft {
+    padding-bottom: 10px;
+}
+
+.topluft {
+    margin-top: 10px !important;
+}
+.lenke {
+    color: #676767;
+}
+
+
+.extra {
+    color: rgba(0, 0, 0, 0.4);
+}
+
+
+
+#show-all{
+    cursor: pointer;
+}
+
+#children-header{
+    padding-top: 15px;
+}
+

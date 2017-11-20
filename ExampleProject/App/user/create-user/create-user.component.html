@@ -1,0 +1,16 @@
+﻿<div id="formContainer">
+    <div class="ui container segment" style="padding: 0;">
+        <div class="hodorPrimary header">
+            Opprett bruker
+        </div>
+        <div class="ui {{isLoading}} dimmer">
+            <div class="ui text loader">Loading</div>
+        </div>
+        <form class="ui form" id="regForm">
+            <section [class.disabledsection]="hasValidRegisterUser">
+                <register-user (onSuccess)="onRegisterSuccess($event)" (onCancel)="onRegisterCancel()" [showRegisterContent]="true" [isNewUser]="true"></register-user>
+            </section>
+        </form>
+                <user-details [isNewUser]="true" (onSuccess)="onUserDetailsSuccess($event)" [loading]="usercreateloading" [errorMessage]="userCreateError" (onCancel)="onUserDetailsCancel()" [disabled]="!hasValidRegisterUser"></user-details>
+    </div>
+</div>

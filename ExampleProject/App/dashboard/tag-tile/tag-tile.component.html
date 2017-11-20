@@ -1,0 +1,26 @@
+﻿<div class="ui basic segment tag-tile dashboardGray">
+    <p><i class="tags icon" id="dashIcon"></i>{{selected === ownedBy.Me ? ' MINE' : ' ALLE'}} TAGS</p>
+
+    <div class="ui three column grid taglist" >
+        <div *ngFor="let tag of taglist | slice:0:display" class="column tagcontainer">
+            <div class="ui basic fluid large label filterLabel white tiletag" (click)="search(tag)">
+                <div class="tagLabel">{{tag.name}}</div>
+                <i class="delete icon deleteTag" (click)="openPopup($event)"></i>
+                <div class="ui popup">
+                    <span>Er du sikker på at du vil slette tagen?</span>
+                    <br/>
+                    <div class="ui button small hodorPrimary" style="margin-top: 10px" [class.loading]="deleting" id="ja" (click)="deleteTag(tag, $event)">Ja</div>
+                    <div class="ui button small hodorSecondary" style="margin-top: 10px" id="nei" [class.disabled]="deleting" (click)="closeConfirmation($event)">Nei</div>
+                </div>
+            </div>
+          
+        </div>
+    </div>
+    <div *ngIf="taglist?.length === 0" class="ui center aligned segment hodorBackground dark dashboardGray emptyTagTitle">
+        Du har ikke laget noen tags.
+    </div>
+    <br />
+
+    <a *ngIf="taglist?.length > numberToShow" (click)="display = display===numberToShow ? taglist.length : numberToShow">{{  display===numberToShow ? 'Vis alle' : 'Vis færre'}}</a>
+
+</div>

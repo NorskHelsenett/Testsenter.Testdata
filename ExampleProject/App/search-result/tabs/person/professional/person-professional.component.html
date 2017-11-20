@@ -1,0 +1,19 @@
+﻿<div class="ui two column grid">
+    <div class="column">
+        <information-container [information]="information" [title]="'Registrert som helsepersonell'"></information-container>
+        <information-container *ngIf="fadedInformation.details.length > 0" [information]="fadedInformation" [title]="'Utgåtte autorisasjoner'"></information-container>
+        <div class="buttons-container">
+            <div class="buttons bottom attached">
+                <button class="ui basic button" (click)="showHprDetails()">Se ytterligere detaljer</button>
+            </div>
+        </div>
+    </div>
+    <div class="column" *ngIf="flrInformation.details.length > 0">
+        <information-container [information]="flrInformation" [title]="'Jobber som fastlege'"></information-container>
+        <div class="buttons-container">
+            <div class="buttons bottom attached">
+                <button class="ui basic button" (click)="showFlrDetails()">Se ytterligere detaljer</button>
+            </div>
+        </div>
+    </div>
+</div>

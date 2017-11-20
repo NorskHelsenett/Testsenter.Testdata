@@ -1,0 +1,15 @@
+﻿@media only screen and (min-width: 1200px) {
+    .ui.container {
+    width: 100%;
+}
+}
+
+
+.accordion-content {
+    margin-top: 5px !important;
+}
+
+.ui.segment[class*="bottom attached"]:last-child {
+    margin-bottom: 1em;
+}
+

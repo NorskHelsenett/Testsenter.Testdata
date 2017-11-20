@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.6
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleProject", "ExampleProject.csproj", "{81AF4C9A-4411-4FE0-A12C-7002B3B700B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestdataApp.Common", "..\Common\TestdataApp.Common.csproj", "{DB3CF67E-654D-47AD-8377-4F89277AB140}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "..\..\Common\Common.csproj", "{2FB3AFA3-9DDE-4E92-B2B7-93EA5B557AA1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{81AF4C9A-4411-4FE0-A12C-7002B3B700B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81AF4C9A-4411-4FE0-A12C-7002B3B700B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81AF4C9A-4411-4FE0-A12C-7002B3B700B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81AF4C9A-4411-4FE0-A12C-7002B3B700B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB3CF67E-654D-47AD-8377-4F89277AB140}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB3CF67E-654D-47AD-8377-4F89277AB140}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB3CF67E-654D-47AD-8377-4F89277AB140}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB3CF67E-654D-47AD-8377-4F89277AB140}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FB3AFA3-9DDE-4E92-B2B7-93EA5B557AA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FB3AFA3-9DDE-4E92-B2B7-93EA5B557AA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FB3AFA3-9DDE-4E92-B2B7-93EA5B557AA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FB3AFA3-9DDE-4E92-B2B7-93EA5B557AA1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs.helsedirektoratet.no:8081/tfs/helsedirektoratet
+		SccProjectUniqueName0 = ..\\Common\\TestdataApp.Common.csproj
+		SccProjectName0 = ../Common
+		SccLocalPath0 = ..\\Common
+		SccProjectUniqueName1 = ..\\..\\Common\\Common.csproj
+		SccProjectName1 = ../../Common
+		SccLocalPath1 = ..\\..\\Common
+		SccLocalPath2 = .
+		SccProjectUniqueName3 = ExampleProject.csproj
+		SccLocalPath3 = .
+	EndGlobalSection
+EndGlobal

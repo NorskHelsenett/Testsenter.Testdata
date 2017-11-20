@@ -1,0 +1,73 @@
+﻿<div class="ui basic segment" [class.disabled]="state >= 2 || loading" [class.loading]="loading">
+    <div class="ui form" *ngIf="state === 0" id="idsBox">
+        <div class="field">
+            <div class="luftbunn mye">Fyll inn organisasjonsnummer eller HER-id separert med komma:</div>
+            <textarea maxlength="1000" (change)="valueChange($event)" placeholder="Eksempel: 947506579, 973703838, 971462906"></textarea>
+        </div>
+        <div *ngIf="errorMessage&& errorMessage !==''" class="ui negative  message">
+            <i class="close icon" (click)="errorMessage = ''"></i>
+            {{ errorMessage}}
+        </div>
+        <button class="ui button hodorPrimary" id="verifyButton" (click)="checkIds()">VERIFISER DATA</button>
+
+    </div>
+    <div *ngIf="state >= 1" class="ui two column divided padded grid">
+
+        <div class="row">
+            <div class="six wide middle aligned column">
+
+                <div class="ui form" id="ninsList">
+                    <div class="luftbunn">Organisasjonsnr/her-id:</div> 
+                    <ng-container *ngFor="let org of businesses; let i = index">
+                        <div class="inline fields">
+                            <div class="field nin">
+                                <i class="fitted remove link icon hodorRedColor" (click)="removeBusiness(i)"></i>
+                                <input type="text" placeholder="Organisasjonsnummer" [disabled]="org.checked" [(ngModel)]="org.id" (keypress)="isNumberKey($event)"/>
+                            </div>
+                        </div>
+                    </ng-container>
+                    <div class="centertext">
+                        <i class="plus link icon hodorGreenColor" (click)="addRow()"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right floated ten wide column">
+                <div class="ui form" id="nins">
+                    <div class="luftbunn">
+                        <span data-tooltip="Det må argumentes for alle testdataene slik at det vil være mulig å foreta en eventuell prioritering"><i class="help circle link icon hodorGreenColor"></i></span> Argument:<span style="color:red"> *</span>
+                    </div>
+                    <ng-container *ngFor="let id of businesses; let i= index">
+                        <div class="inline fields argument">
+                            <div class="ui field annet" >
+                                <input type="text" [(ngModel)]="id.comment" placeholder="Påkrevd"/>
+                                <input *ngIf="registers[i]" type="text" [(ngModel)]="id.registers" placeholder="Register"/>
+                                <button *ngIf="!registers[i]" data-tooltip="Her kan du spesifisere hvilke registre du ønsker å beholde personen i (valgfritt)" data-position="top center" (click)="registers[i] = true" class="ui button hodorSecondary" >Spesifiser register</button>
+                            </div>
+                        </div>
+
+                    </ng-container>
+
+                </div>
+            </div>
+
+            
+        </div>
+        <div *ngIf="errorMessage && errorMessage !== ''" class="row">
+            <div class="ui negative  message fullwidth">
+                <i class="close icon" (click)="errorMessage = ''"></i>
+
+                {{ errorMessage }}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="left floated eight wide column"><button class="ui button hodorPrimary" (click)="checkArguments()">LAGRE ARGUMENTASJON</button></div>
+            
+
+        </div>
+
+    </div>
+</div>
+
+

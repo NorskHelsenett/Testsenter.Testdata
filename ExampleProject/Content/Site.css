@@ -1,0 +1,330 @@
+﻿body {
+    overflow-x: auto
+}
+
+body > .grid {
+    height: 100%;
+}
+
+
+.box {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+}
+
+    .box .row.header {
+        flex: 0 1 auto;
+    }
+
+    .box .row.content {
+        flex: 1 1 auto;
+        position: relative;
+        margin: 30px;
+    }
+
+
+.accordion i.dropdown.right {
+    transform: rotate(180deg) !important;
+}
+
+.accordion .active i.dropdown.right {
+    transform: rotate(90deg) !important;
+}
+
+.accordion i.dropdown.down {
+        transform: rotate(90deg) !important;
+}
+
+.accordion .active i.dropdown.down {
+    transform: rotate(270deg) !important;
+}
+.mar-top-m {
+    margin-top: 15px;
+}
+
+body {
+    background-color: #F5F5F5;
+
+}
+
+.no-right-margin {
+    margin-right: 0 !important;
+}
+sm-menu .ui.menu {
+    background: rgba(0, 0, 0, 0.4) !important;
+    color: #fff !important;
+}
+
+.transcard {
+    background-color: rgba(255,255,255,0.9);
+    padding: 20px;
+}
+
+.hodorPrimary {
+    background-color: #70A8A3 !important;
+    color: #FFFFFF !important;
+    text-transform: uppercase !important;
+}
+
+.hodorSecondary {
+    background-color: #BCBCBC !important;
+    color: #FFFFFF !important;
+    text-transform: uppercase !important;
+}
+
+.hodorPrimary:hover {
+    background-color: #306863 !important;
+}
+
+.hodorSecondary:hover {
+    background-color: #676767 !important;
+}
+
+.hodorRed.light {
+    background-color: #FFE9DB !important;
+}
+
+.hodorRed {
+    background-color: #FF6A5C !important;
+}
+
+.hodorGreen.light {
+    background-color: #CCDFCB !important;
+}
+
+.hodorGreen {
+    background-color: #70A8A3 !important;
+}
+
+.hodorGreen.dark {
+    background-color: #CCDFCB !important;
+}
+
+.hodorGrey {
+    background-color: #676767 !important;
+}
+
+    .hodorGrey.light {
+        background-color: #BCBCBC !important;
+    }
+
+    .hodorGrey.dark {
+        background-color: #414141 !important;
+    }
+
+.hodorWhite {
+    background-color: #FFFFFF !important;
+}
+
+    .hodorWhite.dark {
+        background-color: #F5F5F5 !important;
+    }
+
+.hodorRedColor.light {
+    color: #FFE9DB;
+}
+
+.hodorRedNotice {
+    background-color: #FFE9DB !important;
+    color: #FF6A5C !important;
+}
+
+.hodorRedColor {
+    color: #FF6A5C;
+}
+
+.hodorGreenColor {
+    color: #70A8A3 !important;
+}
+
+.hodorGreyColor {
+    color: #BCBCBC;
+}
+
+.hodorGreyColor.dark{
+    color: #676767;
+}
+
+.centertext {
+    text-align: center;
+}
+.ellipses {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.centerdiv {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.redleftborder {
+    border-left: 5px solid #FF6A5C !important;
+}
+
+.tealleftborder {
+    border-left: 5px solid #70A8A3 !important;
+}
+
+.extra {
+    color: rgba(0, 0, 0, 0.4);
+}
+
+.filterLabel {
+    border-color: #70a8a3 !important;
+    background-color: #F5F5F5 !important;
+}
+
+.filterLabel.white {
+    background-color: #FFFFFF !important;
+}
+
+.luft.lite {
+    margin: 5px 0;
+}
+
+.luft {
+    margin: 10px 0;
+}
+
+.luft.mye {
+    margin: 20px 0;
+}
+
+.lufttop {
+    margin-top: 20px;
+}
+
+.lufttop.mid {
+    margin-top: 10px;
+}
+
+.lufttop.mye {
+    margin-top: 25px;
+}
+
+.luftbunn {
+    margin-bottom: 10px;
+}
+
+
+.luftbunn.mye {
+    margin-bottom: 25px;
+}
+
+.tags {
+    cursor: default;
+    border-color: #70a8a3 !important;
+}
+
+.accordiontitle {
+    background-color: #D9ECD8;
+    font-size: 14px;
+}
+
+.accordiontitle.centered {
+        text-align: center;
+}
+
+.accordiontitle:hover {
+    background-color: #CCDFCB;
+}
+
+.hodorBackground.dark {
+    background-color: #D9ECD8 !important;
+}
+
+.hodorBackground {
+    background-color: #E7F2E6 !important
+}
+
+
+
+
+#maincontainer > statistics-index > div > div.ui.bottom.attached.active.tab.segment > statistics-overview > div > div:nth-child(8) > ngx-charts-advanced-pie-chart > div > div.advanced-pie-legend-wrapper > ngx-charts-advanced-legend > div > div.legend-items-container > div {
+    overflow: hidden;
+}
+
+#mirrored > ngx-charts-chart > div > svg {
+    transform: scale(-1, 1);
+}
+
+#mirrored > ngx-charts-chart > div > svg > g > g:nth-child(1) > g > g:nth-child(1) > g > g.tick > text{
+    transform: scale(-1,1)
+}
+
+header.legend-title {
+    display: none;
+
+}
+
+.advanced-pie-legend {
+    line-height: 2rem;
+}
+
+.hodorBoxContainer {
+    margin: 100px 0;
+
+}
+.hodorBoxContainer .header {
+    text-align: center;
+    padding: 1em;
+}
+
+.hodorBoxContainer .content {
+    margin: 0 5em;
+}
+
+.hodorGreenLabelText {
+    color: #BCBCBC;
+    font-weight: bold;
+    margin: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+.active .hodorGreenLabelText {
+    color: #70A8A3;
+}
+.hodorStepIcon {
+    border: 6px solid #BCBCBC;
+    font-size: 1.4rem;
+    border-radius: 500rem;
+    color: #BCBCBC;
+    text-align: center;
+    font-weight: bold;
+    vertical-align: baseline;
+    display: inline-block;
+    min-width: 3.8rem;
+    min-height: 3.8rem;
+    padding-top: 0.8rem;
+}
+
+.active .hodorStepIcon {
+        border-color: #70A8A3 !important;
+        color: #70A8A3 !important;
+    }
+
+
+.hodorgreen {
+    color: #70A8A3;
+    opacity: 1 !important;
+}
+
+
+    .hodorgreen:hover {
+        color: #70A8A3 !important;
+    }
+
+
+
+
+.registerLabel {
+    background: #E7F2E6 !important;
+}
+.fullwidth {
+    width: 100% !important;
+}

@@ -1,0 +1,24 @@
+﻿<div class="ui basic segment" [class.disabled]="state < 2" id="contactInfoContainer">
+    <form class="ui form" id="contactForm">
+        <div class="luftbunn mye">Dine kontaktopplysninger må kobles sammen med testdataene:</div>
+        <div class="two fields">
+            <div class="ui required field">
+                <input type="text" name="firstname" placeholder="Fornavn" required>
+            </div>
+            <div class="ui required field">
+                <input type="text" name="lastname" placeholder="Etternavn" required>
+            </div>
+        </div>
+        <div class="ui required field">
+            <input type="email" name="email" placeholder="E-postadresse" required>
+        </div>
+        <div class="ui required field">
+            <input type="text" name="business" placeholder="Din virksomhet" required>
+        </div>
+        <div class="ui field">
+            <textarea name="comments" placeholder="Eventuell generell kommentar"></textarea>
+        </div>
+        <div class="ui error message"></div>
+        <button class="ui button hodorPrimary" type="submit" [disabled]="state <= 1">Registrer</button>
+    </form>
+</div>

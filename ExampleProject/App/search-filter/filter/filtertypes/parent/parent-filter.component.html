@@ -1,0 +1,22 @@
+﻿
+<div style="margin-bottom: 7px;">
+    <label>
+        <input [(ngModel)]="parent.selected" (change)="onCheckBoxSelect(parent)"
+               [id]="parent.uniquevalue" type="checkbox" [checked]="parent.selected">
+        {{ parent.name}}
+    </label>
+</div> 
+<div *ngIf="parent.selected" class="ui content" style="margin-left: 20px">
+    <div *ngFor="let item of childItems" style="margin-bottom: 7px;">
+        <input [(ngModel)]="item.selected" (change)="onPregCheckBoxSelect(item)"
+               [id]="item.uniquevalue" type="checkbox" [checked]="item.selected">
+        {{ item.name}}
+    </div>
+</div>
+<div>
+    <label>
+        <input [(ngModel)]="parentNegative.selected" (change)="onCheckBoxSelect(parentNegative)"
+               [id]="parentNegative.uniquevalue" type="checkbox" [checked]="parentNegative.selected">
+        {{ parentNegative.name}}
+    </label>
+</div>

@@ -1,0 +1,44 @@
+﻿<div class="ui segment {{getPersonColor()}} persondetail">
+    
+    <div class="ui accordion" id="{{person.commonIdentifier}}-accordion">
+        <div class="ui title" (click)="getPersonDetail($event)">
+            <div class="ui centered center aligned grid">
+                <div class="column" id="id-column"><div class="ui tiny inline loader" [class.active]="loading"></div>{{ person.commonIdentifier}}</div>
+                <div class="column" id="name-column"><b>{{getPersonName()}}</b></div>
+                <div class="center aligned column" id="child-column"><b>{{person.barn?.length}}</b></div>
+                <div class="center aligned column" id="register-column">
+                    <span class="ui basic label tags registerLabel" *ngIf="person.isInPreg">PREG</span>
+                    <span class="ui basic label tags registerLabel"  *ngIf="person.isInHpr">HPR</span>
+                    <span class="ui basic label tags registerLabel"  *ngIf="person.isInFlr">FLR</span>
+
+                </div>
+                <div class="center aligned column" id="godkjenninger-column" [style.font-style]="person.info === 'Utgått autorisasjon' ? 'italic' : 'normal'"> {{getPersonInfo()}} </div>
+                <div class="center aligned column" id="tag-column">
+
+                    <div class="ui grid centered" id="tagcoloumn">
+
+                        <div *ngFor="let tag of this.person.tags | slice:0:2" class="ui basic label tags">
+                            {{getTagName(tag) | shorten: 10:'...'}}
+                        </div>
+                        <div *ngIf="this.person.tags != undefined && this.person.tags.length > 2" class="ui basic label tags">
+                            ...
+                        </div>
+                    </div>
+
+                </div>
+                <div class="center aligned column" id="star-column" [attr.data-tooltip]="starstateExplantion"><i [ngClass]="setClasses()"></i>
+                </div>
+                <div class="column right aligned" id="dropdown"><i class="dropdown right icon"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="content" id="{{person.commonIdentifier}}">
+            <div *ngIf="this.person.detail && this.showDetails">
+                <person-detail (newTag)="addTag($event)" (removeTag)="removeTag($event)" [person]="this.person"></person-detail>
+            </div>
+        </div>
+
+        <div *ngIf="errorMessage" class="ui message error">{{errorMessage}}</div>
+    </div>
+</div>

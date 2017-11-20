@@ -1,0 +1,52 @@
+﻿<div class="row">
+    <ngx-charts-bar-horizontal *ngIf="female" [view]="view"
+                               [scheme]="colorScheme"
+                               [results]="female"
+                               [xAxis]="showXAxis"
+                               [yAxis]="showYAxis"
+                               [showXAxisLabel]="showXAxisLabel"
+                               [showYAxisLabel]="showYAxisLabel"
+                               [xAxisLabel]="xAxisLabel"
+                               [yAxisLabel]="yAxisLabel"
+                               (select)="onSelect($event)"
+                               [barPadding]="1">
+    </ngx-charts-bar-horizontal>
+    <ngx-charts-pie-chart *ngIf="single2" [view]="[500, 300]"
+                          [scheme]="pieScheme"
+                          [results]="single2"
+                          [legend]="showLegend"
+                          [explodeSlices]="explodeSlices"
+                          [labels]="showLabels"
+                          [doughnut]="doughnut"
+                          [gradient]="gradient"
+                          (select)="onSelect($event)">
+    </ngx-charts-pie-chart>
+
+</div>
+<div class="row">
+    <h2>Registreringskode </h2>
+</div>
+<div class="row">
+    <ngx-charts-advanced-pie-chart *ngIf="regstatus" [view]="[1500,300]"
+                                   [scheme]="pieScheme"
+                                   [results]="regstatus"
+                                   [gradient]="gradient"
+                                   (select)="onSelect($event)">
+    </ngx-charts-advanced-pie-chart>
+</div>
+<div class="row">
+    <div class="ui tiny statistic">
+        <div class="value">
+            {{ +stats?.Statistics.HasSpouse?.NumberOfTrues?.toLocaleString()}}
+        </div>
+        <div class="label">
+            Har ektefelle
+        </div>
+    </div>
+    <ngx-charts-advanced-pie-chart *ngIf="sivilstatus" [view]="[1500,300]"
+                                   [scheme]="pieScheme"
+                                   [results]="sivilstatus"
+                                   [gradient]="gradient"
+                                   (select)="onSelect($event)">
+    </ngx-charts-advanced-pie-chart>
+</div>

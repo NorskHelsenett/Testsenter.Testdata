@@ -1,0 +1,59 @@
+﻿#userForm {
+    margin: 5em;
+}
+
+.header {
+    text-align: center;
+    padding: 1em;
+}
+
+.centeredBox {
+    display: inline-flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    width: 100%;
+}
+
+    .centeredBox .grouped {
+        padding: 2em 5em;
+    }
+
+.equalwidthbuttons .button {
+    width: 168px;
+}
+
+.rowBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+    .rowBox .row:first-child {
+        margin-bottom: 1em;
+        margin-top: 3em;
+        text-align: center;
+    }
+
+section:nth-child(2) {
+    margin-top: 5em;
+}
+
+#registerUserInfo {
+    text-align: center;
+}
+
+#registerUserActions {
+    display: flex;
+    justify-content: center;
+}
+
+.centertext {
+    text-align: center;
+}
+
+#formContainer {
+    margin-top: 100px;
+    margin-bottom: 100px;
+}

@@ -1,0 +1,26 @@
+﻿<div class="ui fluid" id="surveillance-overview-container">
+    
+    <h2 class="ui header" id="surveillance-header">
+        Mine varslinger
+    </h2>
+    <surveillance-list [persons]="personalSurveillances"></surveillance-list>
+    <div *ngIf="personalSurveillances.length === 0">
+        <div class="ui info message">Dine varslinger vil vises her. </div>
+    </div>
+    <h2 class="ui header" id="project-header">
+        Mitt prosjekts varslinger
+    </h2>
+    
+        <label *ngFor="let person of team" id="checkbox">
+            <input  #teamfilter (change)="onCheckBoxSelect(person, teamfilter)"
+                   type="checkbox" checked name="person">
+            {{person}}
+        </label>
+
+    <surveillance-list [persons] ="projectSurveillances"></surveillance-list>
+    <div *ngIf="projectSurveillances.length === 0">
+        <div class="ui info message">{{ !team ? 'Ingen andre i ditt prosjekt har satt opp varslinger' : 'Dine valgte personer har ingen varsler'}} </div>
+    </div>
+
+    
+</div>

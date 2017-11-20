@@ -1,0 +1,53 @@
+﻿#statuscontainer {
+    cursor: pointer;
+    margin-right: 3px;
+    background-color: #292C30;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+#statuscontainer:hover {
+    border-color: lightgray;
+}
+
+.hodorred {
+    color: #FF6A5C;
+}
+
+.hodorgreen {
+    color: #70A8A3;
+}
+
+.header {
+    text-align: center;
+}
+
+#left-status {
+    padding-right: 0;
+    padding-left: 0;
+}
+#right-status {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.three.column:first-of-type {
+    padding-bottom: 0
+}
+
+.three.column:last-of-type {
+    padding-top: 0;
+}
+
+.three.column .column {
+    padding: 0;
+}
+.middleColumn {
+    display: inline-block;
+    width: 1.3em;
+}
+
+#survIcon{
+    margin-bottom: 15px;
+    margin-right: 0px;
+    margin-top: 10px;
+}

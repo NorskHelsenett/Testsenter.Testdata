@@ -1,0 +1,21 @@
+﻿<div [class.extra]="information.faded">
+    <h4 *ngIf="title" class="header">
+        {{ title }}
+    </h4>
+
+    <ng-container *ngFor="let detail of information.details">
+
+        <p>
+            <span><span class="extra">{{detail.description}}</span>{{detail.value}}</span>
+            <span *ngIf="detail.extra" class="extra">(<i>{{detail.extra}}</i>)</span>
+        </p>
+        <ng-container *ngIf="detail.children">
+            <ng-container *ngFor="let child of detail.children">
+
+                <div class="indent">
+                    <information-container [information]="child"></information-container>
+                </div>
+            </ng-container>
+        </ng-container>
+    </ng-container>
+</div>

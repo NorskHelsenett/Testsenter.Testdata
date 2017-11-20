@@ -1,0 +1,17 @@
+﻿<div class="ui styled accordion greytile" id="commentstile">
+    
+    <div class="ui title">
+        <span class="dropdownrightaccordion ellipses"><i class="comment outline icon" id="commentIcon"></i>KOMMENTARER</span><span style="float: right"><i class="dropdown right icon"></i></span>
+    </div>
+    
+    <div class="content" id="commentscontainer">
+        <div class="ui minimal comments luftbunn">
+            <comments [comments]="commentList" [details]="true"></comments>
+        </div>
+        <div *ngIf="commentList?.length === 0">
+            <p>Det finnes ingen kommentarer skrevet av medlemmene i prosjektet</p>
+        </div>
+    </div>
+   
+
+</div>

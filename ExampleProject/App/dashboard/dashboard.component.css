@@ -1,0 +1,251 @@
+﻿.filteraccordion {
+    margin-top: 15px;
+}
+
+.filteraccordion:first-of-type {
+    padding-top: 0;
+}
+
+
+.search-name {
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.search-name:hover {
+    text-decoration: underline;
+}
+.tiletag {
+    cursor: pointer;
+    padding: 15px;
+    text-align: center;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px !important;
+    color: #676767 !important;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.tagLabel {
+    max-width: calc(99% - 1.18em);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block
+}
+
+.tagLabel:hover {
+    text-decoration: underline;
+}
+
+.deleteTag {
+    float: right;
+    text-decoration: none;
+}
+.tiletag:hover {
+    text-decoration: underline;
+}
+
+
+.dropdown {
+    float: right;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.savedSearchHeader {
+    pointer-events: none;
+    cursor: default;
+    background-color: #d9ecd8;
+    padding: 20px 10px !important;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.right-row {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.right-row:first-of-type {
+    margin-top: 122px;
+}
+.searchcontent {
+    padding: 10px !important;
+}
+
+p {
+    text-align: center;
+    font-size: 18px;
+    color: #676767;
+    margin-bottom: 25px;
+}
+a {
+    color: #595959;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+a:hover {
+    text-decoration: none;
+}
+.dashboardGray {
+    color: #676767
+}
+
+.tagcontainer {
+    padding: 5px !important;
+}
+
+.taglist {
+    margin-top: -5px;
+}
+
+#dashboard-heading {
+    margin-top: 40px;
+    margin-left: 1.5em;
+    font-size: 28px;
+    color: #414141;
+    font-weight: normal;
+}
+
+#dashboard-divider {
+    margin-left: 3em;
+}
+
+.synctimes {
+    padding: 0 5px !important;
+}
+
+.synctimes:last-of-type {
+    padding-bottom: 10px !important;
+}
+
+.tag-tile {
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+.commentsaccordion {
+    padding: 0.5em 1em !important;
+}
+.ui.styled.accordion .content {
+    padding: 0.5em 1em !important;
+}
+
+.ui.styled.accordion .title {
+    color: #676767;
+    font-weight: 400;
+}
+
+.greytile {
+    background-color: gray !important;
+}
+.greytile .title {
+    text-align: center !important;
+    color: white !important;
+}
+
+.greytile .title:hover {
+    background-color: darkgrey !important;
+}
+
+#commentscontainer {
+    background-color: lightgray;
+}
+
+
+.title.accordiontitle.active {
+    background: #D9ECD8 !important;
+}
+
+.title.accordiontitle:hover {
+    background: #CCDFCB !important;
+}
+
+.emptyTagTitle {
+    margin-top: 19px;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+#tableContainer {
+    max-height: 400px;
+    overflow-y: auto;
+    width: 98%;
+}
+
+.taglistfilter {
+    width: 62.5%;
+}
+
+#taglistfilterrow {
+       margin-bottom: 10px;
+        margin-top: 15px;
+}
+
+#taglisttitle {
+    margin-top: 16px;
+    margin-bottom: 20px;
+
+}
+
+#projectDropdown {
+    width: 32.5%;
+}
+
+#dropdownContainer {
+    width: 32%;
+    padding-left: 0;
+    padding-right: 0;   
+}
+
+.dropdownrightaccordion {
+    display: inline-block;
+    max-width: calc(95% - 1.25em);
+}
+
+
+#dashIcon{
+    font-size: 1.7em;
+    margin-right: 15px;
+    vertical-align: top;
+}
+
+#rightcolumn{
+    width: 258px !important;
+}
+
+#statuscontainer{
+    border: 0;
+}
+
+#commentIcon{
+    font-size: 1.7em;
+    margin-right: 15px;
+}
+
+#historyIcon{
+    margin-bottom: 15px;
+    margin-right: 0;
+}
+
+#linksIcon{
+    margin-bottom: 15px;
+    margin-right: 0;
+    margin-left: 10px;
+    font-size: 3em;
+}
+
+#content{
+    margin-top: 40px;
+}
+
+#apiKeyContent {
+    overflow-wrap: break-word;
+    background-color: lightgray;
+}

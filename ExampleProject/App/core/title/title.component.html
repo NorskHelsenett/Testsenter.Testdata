@@ -1,0 +1,18 @@
+﻿<div class="ui inverted vertical aligned segment" id="main-menu">
+    <div class="ui three column grid no-right-margin">
+        <div class="ui middle aligned row no-right-margin" id="titlerow">
+            <div class="left floated left aligned four wide column" id="logo-container">
+                <img id="logoimg" src="../Content/e-helse_logo_monster_white.png" height="28" />
+                <span id="title">TESTDATA</span>
+                <div *ngIf="showUserStatus()" class="ui inverted secondary pointing menu" id="hodormenu">
+                    <a class="item" [class.active]="activePage === childviews.Dashboard" (click)="changePage(childviews.Dashboard)">Dashboard</a>
+                    <a class="item" [class.active]="activePage === childviews.Search" (click)="changePage(childviews.Search)">Søk</a>
+                    <a class="item" [class.active]="activePage === childviews.Surveillance" (click)="changePage(childviews.Surveillance)">Varslinger</a>
+                </div>
+            </div>
+            <div class="right floated four wide column">
+                <user-information *ngIf="showUserStatus()" id="loggedInTile"></user-information>
+            </div>
+        </div>
+    </div>
+</div>

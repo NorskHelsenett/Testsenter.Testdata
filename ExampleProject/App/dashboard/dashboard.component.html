@@ -1,0 +1,47 @@
+﻿<h2 class="ui header" id="dashboard-heading"> {{name | async | uppercase}}</h2>
+<div class="ui divider" id="dashboard-divider"></div>
+<div class="ui two column grid">
+
+    <div class="twelve wide column">
+        <div class="ui centered grid">
+            
+            <div class="row lufttop mye" id="content">
+                <div class="six wide column">
+                    <saved-search-tile [selected]="ownedBy.Me"></saved-search-tile>
+                </div>
+                <div class="nine wide column">
+
+                    <tag-tile [selected]="ownedBy.Me"></tag-tile>
+                </div>
+            </div>
+
+
+            <div class="row lufttop mye">
+                <div class="six wide column">
+                    <saved-search-tile [selected]="ownedBy.All"></saved-search-tile>
+                </div>
+                <div class="nine wide column">
+                    <taglist></taglist>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container" id="rightcolumn">
+        <div class="row right-row">
+            <latest-checks></latest-checks>
+        </div>
+        <div class="row right-row">
+            <comments-tile></comments-tile>
+        </div>
+        <div class="row right-row">
+            <surveillance-status-tile></surveillance-status-tile>
+        </div>
+        <div class="row right-row">
+            <links></links>
+        </div>
+        <div class="row right-row">
+            <apikey></apikey>
+        </div>
+    </div>
+
+</div>

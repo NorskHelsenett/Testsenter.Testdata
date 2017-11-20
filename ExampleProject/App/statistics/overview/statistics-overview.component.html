@@ -1,0 +1,164 @@
+﻿<div class="ui column grid">
+    <div class="row" style="margin-top: 15px;">
+        <div class="ui horizontal divider" id="keytitle">
+            Befolkningspyramide og nøkkeltall
+        </div>
+        <div class="column" style="width: 1080px; margin-left: 15px;">
+            <div class="column" style="float: left;">
+                <ngx-charts-bar-horizontal id="mirrored" *ngIf="male && male.length > 0" [view]="[500,600]"
+                                           [scheme]="colorMale"
+                                           [results]="male"
+                                           [gradient]="gradient"
+                                           [xAxis]="showXAxis"
+                                           [showXAxisLabel]="false"
+                                           [showYAxisLabel]="false"
+                                           [barPadding]="3">
+                </ngx-charts-bar-horizontal>
+            </div>
+            <div class="column" style="float: right;">
+                <ngx-charts-bar-horizontal *ngIf="female && female.length > 0" [view]="[550,600]"
+                                           [scheme]="colorFemale"
+                                           [results]="female"
+                                           [xAxis]="showXAxis"
+                                           [yAxis]="showYAxis"
+                                           [showYAxisLabel]="false"
+                                           [barPadding]="3">
+                </ngx-charts-bar-horizontal>
+            </div>
+         </div>
+        <div class="center aligned column" style="flex: 1;">
+            <div class="ui list">
+               
+                <div class="item">
+                    <div class="ui tiny statistic keyvalues">
+                        <div class="value" id="mennesker" style="font-weight: bold;">
+                            {{ +stats?.Statistics?.NumberOfPersons?.toLocaleString()}}
+                        </div>
+                        <div class="label" id="keylabels">Mennesker totalt</div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="ui tiny statistic keyvalues">
+                        <div class="value">
+                            {{ +stats?.Statistics?.IsDead?.NumberOfTrues?.toLocaleString()}}
+                        </div>
+                        <div class="label" id="keylabels">
+                            Er registrert døde
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="ui tiny statistic keyvalues">
+                        <div class="value">
+                            {{ +stats?.Statistics?.HasDufNo?.NumberOfTrues?.toLocaleString()}}
+                        </div>
+                        <div class="label" id="keylabels">
+                            Med duf-nummer
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="ui tiny statistic keyvalues">
+                        <div class="value">
+                            {{ +stats?.Statistics?.HasDnummer?.NumberOfTrues?.toLocaleString()}}
+                        </div>
+                        <div class="label" id="keylabels">
+                            Med D-nummer
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="ui tiny statistic keyvalues">
+                        <div class="value">
+                            {{ +stats?.Statistics?.HasSpouse?.NumberOfTrues?.toLocaleString()}}
+                        </div>
+                        <div class="label" id="keylabels">
+                            Har registrert ektefelle
+                        </div>
+                    </div>
+                </div>
+
+             </div>
+        </div>
+
+    </div>
+
+
+    <div class="ui column grid" style="flex: 1;" id="agedata">
+        <div class="row">
+            <div class="column" style="width: 130px;">
+                <p style="font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif; font-size: 1em; font-weight: bold; padding-top: 8px;">ALDERSGRUPPE: </p>
+            </div>
+            <div class="column">
+                <select [(ngModel)]="selectedGroup" class="ui dropdown">
+                    <option value="">Alle</option>
+                    <option *ngFor="let age of ages" [value]="age">{{getAgeQuantName(age)}}</option>
+                </select>
+            </div>
+        </div>
+
+
+        <div class="centered row">
+            <div class="ui horizontal divider">Kjønnsfordeling</div>
+            <ngx-charts-pie-chart *ngIf="kjonn" [view]="[500, 300]"
+                                  [scheme]="pieScheme"
+                                  [results]="kjonn"
+                                  [legend]="false"
+                                  [labels]="true"
+                                  [doughnut]="doughnut"
+                                  [gradient]="gradient">
+            </ngx-charts-pie-chart>
+            
+            <ngx-charts-pie-grid *ngIf="kjonn" [view]="[500, 180]"
+                                 [scheme]="pieScheme"
+                                 [results]="kjonn" style="margin-top: 60px;">
+
+            </ngx-charts-pie-grid>
+
+        </div>
+
+
+        <div class="row">
+            <div class="ui horizontal divider">Registreringskode</div>
+            <ngx-charts-advanced-pie-chart *ngIf="regstatus" [view]="[1800, 270]"
+                                           [scheme]="pieScheme"
+                                           [results]="regstatus"
+                                           (select)="onSelect($event)" style="text-align: left;">
+            </ngx-charts-advanced-pie-chart>
+        </div>
+
+
+        <div class="row">
+            <div class="ui horizontal divider">Sivilstatus</div>
+            <ngx-charts-advanced-pie-chart *ngIf="sivilstatus" [view]="[1800, 270]"
+                                           [scheme]="pieScheme"
+                                           [results]="sivilstatus"
+                                           (select)="onSelect($event)">
+            </ngx-charts-advanced-pie-chart>
+        </div>
+
+
+        <div class="row">
+            <div class="ui horizontal divider">Foreldreansvar</div>
+            <ngx-charts-advanced-pie-chart *ngIf="custody" [view]="[1800, 270]"
+                                           [scheme]="pieScheme"
+                                           [results]="custody"
+                                           (select)="onSelect($event)">
+            </ngx-charts-advanced-pie-chart>
+        </div>
+        <div class="row">
+            <div class="ui horizontal divider">Adressetype</div>
+            <ngx-charts-advanced-pie-chart *ngIf="postalType" [view]="[1800, 270]"
+                                           [scheme]="pieScheme"
+                                           [results]="postalType"
+                                           (select)="onSelect($event)">
+            </ngx-charts-advanced-pie-chart>
+        </div>
+    </div>
+
+    
+</div>

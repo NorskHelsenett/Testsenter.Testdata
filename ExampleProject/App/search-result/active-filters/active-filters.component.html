@@ -1,0 +1,80 @@
+﻿
+
+<div class="two column ui grid" id="maingrid">
+
+    <div class="column" id="labels">
+        <div *ngIf="this.term?.searchTerm" class="ui basic label filterLabel" style="margin-bottom: 10px">
+            Søkeord: {{term?.searchTerm}}
+            <i class="delete icon" (click)="onSearchRemove()"></i>
+        </div>
+
+        <div class="ui basic label filterLabel" *ngFor="let item of activeFilters" style="margin-bottom: 10px">
+            {{item.displayName ? item.tagName : item.displayName}}{{item.parameter ? ': ' + getParameter(item) : ''}}
+            <i class="delete icon" (click)="onRemove(item)"></i>
+        </div>
+    </div>
+
+    <div class="column" style="width: 290px" id="save_or_reset">
+        <div class="two column ui grid" id="save_or_reset_inner">
+
+            <div class="column" id="outer_saveSearch">
+
+                <div *ngIf="savable">
+
+                    <div class="column" id="saveSearch">
+                        <img id="saveimg" src="../Content/save_search_circle5.png" />
+                        <a id="saveText">Lagre søk</a>                   
+                    </div>
+
+                    <div class="ui popup">
+                        <div class="ui corner labeled input luftbunn">
+                            <input #name type="text" placeholder="Navn på søk" required>
+                            <div class="ui corner label">
+                                <i class="asterisk icon"></i>
+                            </div>
+                        </div>
+                        <div *ngIf="error" class="ui tiny message negative">
+                            Søket må ha et navnt
+                        </div>
+                        <div class="ui input luftbunn">
+                            <input #description type="text" placeholder="Beskrivelse">
+                        </div>
+                        <div [class.disabled]="name.value.length === 0" [class.loading]="saving" class="ui button small hodorPrimary" id="save" (click)="save(name.value, description.value)">Lagre</div>
+                        <div class="ui button small hodorSecondary" [class.disabled]="saving" id="cancel" (click)="close()">Avbryt</div>
+                    </div>
+                </div>
+                <div *ngIf="ownedByUser">
+
+
+                    <div class="column" id="deleteSearch">
+                        <img id="saveimg" src="../Content/delete_search_circle3.png" />
+                        <a id="saveText">Slett søk</a>
+                    </div>
+
+
+                    <div class="ui popup" style="width: 180px">
+                        <span>Er du sikker på at du vil slette det lagrede søket?</span>
+
+                        <div class="ui button small hodorPrimary" style="margin-top: 10px" [class.loading]="deleting" id="ja" (click)="deleteSearch()">Ja</div>
+                        <div class="ui button small hodorSecondary" style="margin-top: 10px" id="nei" [class.disabled]="deleting" (click)="closeConfirmation()">Nei</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column" id="outer_reset-container">
+
+                <div class="column" id="reset-container" *ngIf="activeFilterCount > 0">
+                    <img id="resetimg" (click)="searchWithEmptyFilters()" [class.disabled]="searchInProgress || activeFilters === 0" src="../Content/reset_filter_circle.png" />
+                    <a id="resetFilter" (click)="searchWithEmptyFilters()" [class.disabled]="searchInProgress || activeFilters === 0">Nullstill filter <span *ngIf="activeFilterCount > 0" class="meta">({{activeFilterCount}})</span></a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+
+
+
+

@@ -1,0 +1,126 @@
+﻿<div class="ui one column centered grid">
+    <div class="lufttop row">
+        <select class="ui dropdown" [(ngModel)]="stat1">
+            <option [selected]="true" disabled>Velg fil</option>
+            <option *ngFor="let blob of blobs" [value]="blob.name">{{blob.name}}</option>
+        </select>
+        <select class="ui dropdown" [(ngModel)]="stat2">
+            <option [selected]="true" disabled>Velg fil</option>
+            <option *ngFor="let blob of blobs" [value]="blob.name">{{blob.name}}</option>
+        </select>
+
+        <button type="button" class="ui blue button"
+                (click)="getValueComperison()" [disabled]="!stat1 || !stat2" [class.loading]="loading">
+            <i class="download icon"></i>Sammenlign
+        </button>
+    </div>
+    <div class="row"  *ngIf="stats">
+        <select class="ui dropdown" [(ngModel)] ="show">
+            <option *ngFor="let value of keys(this.stats) | slice:1" [value]="value">{{ value |ucfirst}}</option>
+        </select>
+        <select class="ui dropdown" (change)="this.stats = this.statslist[$event.target.value]">
+            <option *ngFor="let value of this.statslist |pluck:'name'; let i=index" [value]="i">{{ value |ucfirst}}</option>
+        </select>
+    </div>
+    <div class="row">
+        <ng-container [ngSwitch]="show">
+            <table *ngSwitchCase="'boolean'" id="booleanData" class="ui celled collapsing table center aligned">
+                <thead>
+                <tr>
+                    <th [attr.colspan]="5">
+                        Boolske
+                    </th>
+                </tr>
+                <tr>
+                    <th>Verdi</th>
+                    <th (click)="sortIndex = 0">Forskjell</th>
+                    <th (click)="sortIndex = 1">Ratio</th>
+                    <th (click)="sortIndex = 2">{{ stat1 }}</th>
+                    <th (click)="sortIndex = 3">{{ stat2 }}</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let value of orderList(this.stats.boolean, sortIndex) | keys">
+                    <td>{{ value |ucfirst}}</td>
+                    <td *ngFor="let v of this.stats.boolean[value]; let i = index">{{  i !== 1 ? (getValue(v) | percent:'1.0-5') : (getValue(v) | number:'1.0-5') }}<!--<span *ngIf="i !== 1 && i !== 0">%</span>--></td>
+                </tr>
+                </tbody>
+            </table>
+     
+
+            <table *ngSwitchCase="'discrete'"  id="discreteData" class="ui celled collapsing structured table center aligned">
+                <thead>
+                <tr>
+                    <th colspan="6">
+                        Diskret
+                    </th>
+                </tr>
+                <tr>
+                    <th>Verdi</th>
+                    <th (click)="sortIndex = 0">Alternativ</th>
+                    <th (click)="sortIndex = 1">Forskjell</th>
+                    <th (click)="sortIndex = 2">%</th>
+                    <th (click)="sortIndex = 3">{{ stat1 }} </th>
+                    <th (click)="sortIndex = 4">{{ stat2 }}</th>
+                </tr>
+                </thead>
+                <tbody>
+                <ng-container *ngFor="let value of keys(this.stats.discrete)">
+                    <tr *ngFor="let s of sortOnIndex(this.stats.discrete[value], sortIndex) | slice:0:20; let first = first">
+                        <td *ngIf="first" [attr.rowspan]="this.stats.discrete[value].length > 20 ? 20 : this.stats.discrete[value].length">{{ value | ucfirst }}</td>
+                        <td *ngFor="let val of s.split(';'); let i = index">{{ i==0 ? val : getValue(val) | number:'1.0-5'}}<span *ngIf="i!==0 || i!==01">%</span></td>
+                    </tr>
+                
+                </ng-container>
+           
+                </tbody>
+            </table>
+            <table  *ngSwitchCase="'correlations'"  id="correlationData" class="ui celled collapsing  table center aligned">
+                <thead>
+                <tr>
+                    <th colspan="5">
+                        Korrelasjon
+                    </th>
+                </tr>
+                <tr>
+                    <th>Verdi</th>
+                    <th (click)="sortIndex = 0">Forskjell</th>
+                    <th (click)="sortIndex = 1">Ratio</th>
+                    <th (click)="sortIndex = 2">{{ stat1 }} </th>
+                    <th (click)="sortIndex = 3">{{ stat2 }}</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let value of orderList(this.stats.correlations, sortIndex)">
+                    <td>{{ value | ucfirst }}</td>
+                    <td *ngFor="let v of this.stats.correlations[value]; let i=index">{{ i !== 1 ? (getValue(v) | percent:'1.0-5') : (getValue(v) | number:'1.0-5')}}</td>
+                </tr>
+                </tbody>
+            </table>
+            <div *ngSwitchCase="'matrix'" id="matrixData" class="ui celled collapsing  table center aligned" style="width: 100%; overflow: auto">            
+                <table >
+                
+                    <tbody>
+                    <tr *ngFor="let row of this.stats.matrix; let f1 = first">
+
+                        <td *ngFor="let col of row; let f2 = first"  [ngClass]="getClass(col, f1, f2)" >
+                            <ng-container *ngIf="f1 || f2">
+                                {{col?.valuesAsString}}
+                            </ng-container>
+                            <ng-container *ngIf="!f1 && !f2 && col">
+                                <ng-container *ngFor="let val of col.valuesAsString.split(';'); let i = index">
+                                    <b *ngIf="i === 0">{{ getValue(val) | number:'1.0-5'}} </b>
+                                    <ng-container *ngIf="!f3 && i !== 0">{{ getValue(val) | number:'1.0-5'}}</ng-container>
+                                    <br />
+                                </ng-container>
+                            </ng-container>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+              
+        </ng-container>
+    </div>
+</div>
+

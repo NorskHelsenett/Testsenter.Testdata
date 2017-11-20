@@ -1,0 +1,21 @@
+﻿
+<div *ngFor="let comment of comments" class="comment" [class.detailed]="details">
+    <div class="content">
+        <span class="author">
+            {{comment.registeredByFriendlyName}}
+        </span>
+        <div class="metadata" id="detailDate">
+            <span class="date"> ({{comment.createdAt | simpledate}}) </span>
+        </div>
+        <div id="detailNIN" *ngIf="details">
+            <span class="idlink" (click)="searchWithNin(comment)">{{comment.commonIdentifier}}</span>
+            
+        </div>
+        <div class="text">
+            {{comment.content}}
+        </div>
+        <div *ngIf="comment.registeredBy === this.userName && !details" class="actions">
+            <a class="reply" (click)="remove(comment)">Slett</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+﻿<div id="loginContainer">
+    <div id="loginBox">
+        <section id="loginForm" class="ui segment">
+            <form class="ui" >
+                <div class="ui input fluid" [class.error]="epostMessage.length > 0">
+                    <input type="email"  name="email" id="epostInput" placeholder="E-postadresse" [(ngModel)] ="epost" (blur)="checkEpost()" (keyup.enter)="onSubmit()">
+                </div>
+                <div class="ui input fluid" [class.error]="passwordMessage.length > 0">
+                    <input type="password" name="password" id="passwordInput" placeholder="Passord" [(ngModel)]="password" (blur)="checkPassword()" (keyup.enter)="onSubmit()">
+                </div>
+                <div *ngIf="messages" class="ui negative message" id="errorbox">
+                    <ul>
+                        <li *ngIf="epostMessage">{{epostMessage}}</li>
+                        <li *ngIf="passwordMessage">{{passwordMessage}}</li>
+                        <li *ngIf="errorMessage"><b>{{errorMessage}}</b></li>
+                    </ul>
+                </div>
+                <div *ngIf="createsuccess" class="ui success message">
+                    Bruker er opprettet. Sjekk epost for å aktivere din bruker
+                </div>
+                <div *ngIf="newpasswordsuccess" class="ui success message">
+                    Ditt nye passord er sendt til din registerte eposteadresse
+                </div>
+                
+                <div id="formActions">
+                    <button id="loginSubmit" [class.loading]="loading" class="ui button hodorPrimary" (click)="onSubmit()">Logg inn</button>
+                    <a id="forgotpassword" [routerLink]="['/forgottenpassword']">Glemt passord?</a>
+                </div>
+            </form>
+        </section>
+        <div id="divide">
+            <div class="ui divider vertical">ELLER</div>
+        </div>
+        <section id="newUser">
+            <button class="ui labeled icon button hodorSecondary" (click)="newUser()" id="createUserButton">
+                <i class="plus icon hodorGrey .dark"></i>
+                Opprett bruker
+            </button>
+        </section>
+    </div>
+</div>

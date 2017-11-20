@@ -1,0 +1,75 @@
+﻿<div class="ui column grid" style="flex: 1;">
+    <div class="row">
+
+        <div class="column" style="width: 130px;">
+            <p style="font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif; font-size: 1em; font-weight: bold; padding-top: 8px;">ALDERSGRUPPE: </p>
+        </div>
+
+        <div class="column">
+            <select [(ngModel)]="selectedGroup" class="ui dropdown">
+                <option value="">Alle</option>
+                <option *ngFor="let age of ages" [value]="age">{{getAgeQuantName(age)}}</option>
+            </select>
+
+        </div>
+    </div>
+</div>
+        <div class="ui horizontal divider">
+            Boolske
+        </div>
+
+        <div class="ui segments">
+            <ng-container *ngFor="let l of rows(booleans)">
+
+                <div class="ui horizontal segments">
+                    <div class="ui segment" *ngFor="let d of booleans | slice:l:l+5">
+                        <ng-container *ngIf="d">
+                        <div class="ui header">{{d.name}}</div>
+                        <div class="ui small header" *ngIf="d.value === 'NaN'"> {{ d.value}}</div>
+                        <div class="ui small header" *ngIf="d.value !== 'NaN'"> {{ d.value | percent}}</div>
+                        <p> <b>Total:</b> {{ d.total}}
+                        </p>
+                        <p> <b>Ratio:</b> {{ d.numberOfTrues}} / {{d.total - d.numberOfTrues}}
+                        </p>
+                        </ng-container>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+
+        <div class="ui horizontal divider">
+            Diskret
+        </div>
+
+        <div class="ui segments">
+            <ng-container *ngFor="let l of rows(discrete)">
+
+                <div class="ui horizontal segments">
+                    <div class="ui segment" *ngFor="let d of discrete | slice:l:l+5">
+                        <div class="ui header">{{d.name}}</div>
+                        <div *ngFor="let prop of d.properties">
+                            <p> <b>{{prop.name}}</b> - {{prop.value}} - {{ prop.extra | percent}}</p>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+
+
+        <div class="ui horizontal divider">
+            Andre
+        </div>
+        <div class="ui segments">
+            <ng-container *ngFor="let l of rows(other)">
+
+                <div class="ui horizontal segments">
+                    <div class="ui segment" *ngFor="let d of other | slice:l:l+5">
+                        <div class="ui top attached header">{{d.name}}</div>
+                        <div class="ui small header"> {{ d.func}}</div>
+                        <p> <b>Total:</b> {{ d.total}} </p>
+                        <p> <b>Min/Max:</b> {{ d.min}} / {{d.max}} </p>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+

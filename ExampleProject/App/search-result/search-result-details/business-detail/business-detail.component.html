@@ -1,0 +1,43 @@
+﻿
+<div class="ui container accordion-content">
+        
+    <div class="ui top attached tabular menu">
+        <a class="active item" data-tab="oversikt">Oversikt</a>
+        <a *ngIf="containsBedRegInformation" class="item" data-tab="bedreg">BREG</a>
+        <a *ngIf="containsArInformation" class="item" data-tab="ar">AR</a>
+        <a *ngIf="containsFlrInformation" class="item" data-tab="flr">FLR</a>
+    </div>
+
+    <div class="ui bottom attached tab segment active" data-tab="oversikt">
+        <div class="ui fluid multiple search selection dropdown" id="{{commonid}}-dropdown">
+            <input name="tags" type="hidden">
+            <i class="dropdown icon"></i>
+            <div class="default text">Tags</div>
+            <div class="menu">
+                <div *ngFor="let tag of tags" class="item" [attr.data-value]="tag.name">{{tag.name}}</div>
+            </div>
+        </div>
+        <div class="ui divider"></div>
+        <business-overview [item]="this.business" (_showDetails)="showDetails($event)"></business-overview>
+    </div>
+    <div *ngIf="containsBedRegInformation" class="ui bottom attached tab segment" data-tab="bedreg">
+        <business-bedreg [item]="this.business" (_showDetails)="showDetails($event)"></business-bedreg>
+    </div>
+    <div *ngIf="containsArInformation" class="ui bottom attached tab segment" data-tab="ar">
+        <business-ar [item]="this.business" (_showDetails)="showDetails($event)"></business-ar>
+    </div>
+    <div *ngIf="containsFlrInformation" class="ui bottom attached tab segment" data-tab="flr">
+        <business-flr [item]="this.business" (_showDetails)="showDetails($event)"></business-flr>
+    </div>
+</div>
+
+<div [ngSwitch]="currentView" >
+    <div *ngIf="currentView != childViews.None"></div>
+
+    <div *ngSwitchCase="childViews.Json" >
+        <json-detail [content]="currentHit"  (onClose)="closeDetails($event)"></json-detail>
+    </div>
+    
+</div>
+
+<div *ngIf="errorMessage" class="ui message error">{{errorMessage}}</div>

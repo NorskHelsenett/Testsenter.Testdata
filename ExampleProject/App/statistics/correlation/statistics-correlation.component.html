@@ -1,0 +1,21 @@
+﻿<select [(ngModel)]="val1" class="ui dropdown" id="valg1" (change)="selectVal()">
+    <option value="">Verdi 1</option>
+    <option *ngFor="let c of choices; let i = index;" (value)="i">{{c}}</option>
+</select>
+<select [(ngModel)]="val2" class="ui dropdown" id="valg2" (change)="selectVal()">
+    <option value="">Verdi 2</option>
+    <option *ngFor="let c of choices; let i = index;" (value)="i">{{c}}</option>
+</select>
+<p><b> Verdi:</b> {{selectedValue}}</p>
+<table class="ui small selectable celled table">
+    <tbody>
+        <ng-container *ngIf="stats != undefined">
+            <tr *ngFor="let row of matrix; let f1 = first">
+
+                <td *ngFor="let col of row; let f2 = first" [ngClass]="getClass(col, f1, f2)">
+                    {{ f2 || f1 ? col?.ValuesAsString : (col?.ValuesAsString === 'null' ? '' : col?.ValuesAsString === '' ? ((col?.Value === 'NaN' ? 0 : col?.Value)| number:'1.0-5') : (col?.ValuesAsString|shorten:5)) }}
+                </td>
+            </tr>
+        </ng-container>
+    </tbody>
+</table>
